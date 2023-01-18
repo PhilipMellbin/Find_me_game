@@ -1,0 +1,90 @@
+$length: 170px;
+#Shape1
+{
+    width: 70%;
+    max-width: 1000px;
+    height: $length;
+    border-radius: 50%;
+    border-style: solid;
+    border-color: black;
+    border-width: 10px;
+    display:flex;
+    justify-content: center;
+}
+.Iris1
+{
+    width: $length;
+    height: $length;
+    margin-top: -10px;
+    background-color: aquamarine;
+    border-radius: 50%;
+    border-style: solid;
+    border-color: black;
+    border-width: 10px;
+    display: flex;
+    justify-content: center;
+}
+.Pupil
+{
+    $NewLength: $length / 3.4;
+    width: $NewLength;
+    height: $NewLength;
+    margin:auto;
+    background-color: black;
+    border-radius: 50%;
+}
+#Shape2
+{
+    width: 70%;
+    max-width: 1000px;
+    height: 100.3333333333px;
+    border-radius: 50%/100%;
+    border-Top-left-radius: 0;
+    border-Top-right-radius: 0;
+    border-style: solid;
+    border-width: 10px;
+    display: flex;
+    justify-content: center;
+}
+.Iris2
+{
+    width: 170px;
+    height: 100px;
+    margin-top: -10px;
+    background-color: aquamarine;
+    border-radius: 50%/100%;
+    border-style: solid;
+    border-width: 10px;
+    display: flex;
+    justify-content: center;
+}
+#Shape3
+{
+    width: 70%;
+    max-width: 1000px;
+    height: 100.3333333333px;
+    border-radius: 50%/100%;
+    border-Top-left-radius: 0;
+    border-Top-right-radius: 0;
+    border-style: solid;
+    border-top-style: none;
+    border-width: 10px;
+    display: flex;
+    justify-content: center;
+}
+#Shape4
+{
+    width: 70%;
+    max-width: 1000px;
+    height: $length;
+    border-radius: 50%;
+    border-style: solid;
+    border-color: black;
+    border-width: 10px;
+    display:flex;
+    justify-content: center;
+}
+.invisible
+{
+    display: none;
+}
