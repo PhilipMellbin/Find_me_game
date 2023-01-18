@@ -1,5 +1,5 @@
-@import url(c:\Sy21b_Programering\asignment\Find_me!\styles\eyes.css);
-@import url(c:\Sy21b_Programering\asignment\Find_me!\styles\header.css);
+@import "eyes.css";
+@import "header.css";
 html {
   scroll-behavior: smooth;
 }
