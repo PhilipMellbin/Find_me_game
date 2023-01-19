@@ -41,50 +41,21 @@ for(i = 0; i < eye.length; i++)
 {
   eye[i].style.display = "none";
 }
-function page(i)//Switch page
+function page(eye, i)//Switch page
 {
-  while(i != 3)
+  if(i == 4)
   {
-    eye[i].style.display = "flex";
-    if(i < 1)
-    {
-      j = i - 1
-      eye[j].style.display = "none" //faulty
-    }
-    setTimeout(page ,1000)
+    console.log("game loads now") //Loads at the last page
   }
+  eye[i].style.display = "flex"; //Loads the curent page and removes the last one
+  console.log("page switched");
+  if(i > 0)
+  {
+    eye[i - 1].style.display = "none";
+    console.log("last page removed");
+  }
+
 }
-
-/*var eye1 = document.getElementById("Shape1");
-var eye2 = document.getElementById("Shape2");
-var eye3 = document.getElementById("Shape3");
-var eye4 = document.getElementById("Shape4");
-
-eye1.style.display = "none"; //Display "none" for all pages
-eye2.style.display = "none";
-eye3.style.display = "none";
-eye4.style.display = "none";
-
-function page1() //Switch pages
-{
-  console.log("page1");
-  eye1.style.display = "flex";
-}
-function page2()
-{
-  console.log("page2")
-  eye1.style.display = "none";
-  eye2.style.display = "flex";
-}
-function page3()
-{
-  console.log("page3")
-  eye2.style.display = "none";
-  eye3.style.display = "flex";
-
-}*/
-
-console.log(start)
 
 for(i = 0; i < start.length; i++) //For every button with the class start: add a start function
 {
@@ -95,7 +66,10 @@ for(i = 0; i < start.length; i++) //For every button with the class start: add a
     load.style.display = "block"; 
     if(load.style.display = "block") //Load page function on load
     {
-      page(0)
+      for(i = 0; i < eye.length; i ++ )
+      {
+        setTimeout(page(eye, i), 1000); //Semes to ignore setTimeout
+      }
     }
   };
   
