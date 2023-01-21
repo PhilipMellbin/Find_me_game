@@ -51,12 +51,12 @@ function waitforme(ms)
 
 async function page(eye)//Switch page
 {
-  for(var i = 0; i < eye.length; i++)
+  for(var i = 0; i < eye.length; i++) //For every item in list eye
   {
-    eye[i].style.display = "flex";
-    console.log("on page " + i)
+    eye[i].style.display = "flex"; 
+    console.log("on page " + i) //Display page
     await waitforme(1000)
-    if(i != 3)
+    if(i != 3) //If on the final bage, just leave it
     {
       eye[i].style.display = "none";
     }
@@ -74,10 +74,7 @@ for(i = 0; i < start.length; i++) //For every button with the class start: add a
     load.style.display = "block"; 
     if(load.style.display == "block") //Load page function on load
     {
-      for(var i = 0; i < eye.length; i ++ )
-      {
-        page(eye)
-      }
+      page(eye)
     }
   };
   
