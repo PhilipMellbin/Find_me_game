@@ -53,13 +53,12 @@ async function page(eye)//Switch page
 {
   for(var i = 0; i < eye.length; i++)
   {
-    await waitforme(1000)
     eye[i].style.display = "flex";
     console.log("on page " + i)
-    if (i > 1)
+    await waitforme(1000)
+    if(i != 3)
     {
-      eye[i - 1].style.display = "none";
-      console.log("last page " + (i - 1))
+      eye[i].style.display = "none";
     }
   }
 
