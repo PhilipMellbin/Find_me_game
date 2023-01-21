@@ -41,8 +41,17 @@ for(i = 0; i < eye.length; i++)
 {
   eye[i].style.display = "none";
 }
-function page(eye, i)//Switch page
+function waitforme(ms)
 {
+  return new Promise( resolve => 
+    {
+      setTimeout(()=> {resolve('')},ms );
+    })
+}
+
+async function page(eye, i)//Switch page
+{
+  await waitforme(1000);
   if(i == 4)
   {
     console.log("game loads now") //Loads at the last page
@@ -57,6 +66,7 @@ function page(eye, i)//Switch page
 
 }
 
+
 for(i = 0; i < start.length; i++) //For every button with the class start: add a start function
 {
   start[i].onclick = function()
@@ -64,11 +74,11 @@ for(i = 0; i < start.length; i++) //For every button with the class start: add a
     header.style.display= "none";
     rules.style.display = "none"; //Display none for all eccept load and later game
     load.style.display = "block"; 
-    if(load.style.display = "block") //Load page function on load
+    if(load.style.display == "block") //Load page function on load
     {
-      for(i = 0; i < eye.length; i ++ )
+      for(var i = 0; i < eye.length; i ++ )
       {
-        setTimeout(page(eye, i), 1000); //Semes to ignore setTimeout
+        page(eye, i); //Semes to ignore setTimeout
       }
     }
   };
