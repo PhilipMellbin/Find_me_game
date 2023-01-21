@@ -49,19 +49,18 @@ function waitforme(ms)
     })
 }
 
-async function page(eye, i)//Switch page
+async function page(eye)//Switch page
 {
-  await waitforme(1000);
-  if(i == 4)
+  for(var i = 0; i < eye.length; i++)
   {
-    console.log("game loads now") //Loads at the last page
-  }
-  eye[i].style.display = "flex"; //Loads the curent page and removes the last one
-  console.log("page switched");
-  if(i > 0)
-  {
-    eye[i - 1].style.display = "none";
-    console.log("last page removed");
+    await waitforme(1000)
+    eye[i].style.display = "flex";
+    console.log("on page " + i)
+    if (i > 1)
+    {
+      eye[i - 1].style.display = "none";
+      console.log("last page " + (i - 1))
+    }
   }
 
 }
@@ -78,7 +77,7 @@ for(i = 0; i < start.length; i++) //For every button with the class start: add a
     {
       for(var i = 0; i < eye.length; i ++ )
       {
-        page(eye, i); //Semes to ignore setTimeout
+        page(eye)
       }
     }
   };
