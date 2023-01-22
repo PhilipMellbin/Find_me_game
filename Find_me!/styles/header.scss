@@ -30,7 +30,15 @@ header
         font-size: $size2 * 0.5;
         font-family: 'Oswald', sans-serif;
     }
-    .btn1 //Important
+    @keyframes fade {
+        from{opacity: 0;}
+        to{opacity: 1;}
+    }
+    animation-name: fade;
+    animation-duration: 5s;
+    animation-fill-mode: forwards;
+}
+.btn1 //Important
     {
         margin-top: 10px;
         a, .start
@@ -87,11 +95,3 @@ header
             }
         }
     }
-    @keyframes fade {
-        from{opacity: 0;}
-        to{opacity: 1;}
-    }
-    animation-name: fade;
-    animation-duration: 5s;
-    animation-fill-mode: forwards;
-}

@@ -1,3 +1,8 @@
+.eye {
+  margin: auto;
+  margin-top: 30vh;
+}
+
 #Shape1 {
   width: 70%;
   max-width: 1000px;
@@ -6,12 +11,8 @@
   border-style: solid;
   border-color: black;
   border-width: 10px;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  justify-content: center;
 }
 
 .Iris1 {
@@ -23,12 +24,8 @@
   border-style: solid;
   border-color: black;
   border-width: 10px;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  justify-content: center;
 }
 
 .Pupil {
@@ -48,12 +45,8 @@
   border-Top-right-radius: 0;
   border-style: solid;
   border-width: 10px;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  justify-content: center;
 }
 
 .Iris2 {
@@ -64,12 +57,8 @@
   border-radius: 50%/100%;
   border-style: solid;
   border-width: 10px;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  justify-content: center;
 }
 
 #Shape3 {
@@ -82,12 +71,8 @@
   border-style: solid;
   border-top-style: none;
   border-width: 10px;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  justify-content: center;
 }
 
 #Shape4 {
@@ -98,15 +83,10 @@
   border-style: solid;
   border-color: black;
   border-width: 10px;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  justify-content: center;
 }
 
 .invisible {
   display: none;
-}
-/*# sourceMappingURL=eyes.css.map */
+}/*# sourceMappingURL=eyes.css.map */
