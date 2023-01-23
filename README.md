@@ -1,6 +1,13 @@
 # Find_me_game
 This is a game for a school assignment in seconary school, and takes insperation from the Wanted minigame from Mario
 
+In the game, there will be an eye in the middle, and 3 buttons to click on.
+The goal is to acumulate as manny points as posible, through clicking the
+button with the same collor as the eye's iris.
+
+You get +2 seconds for every corect click, and get -5 seconds for every incorect click.
+If i have extra time, i may add more buttons to click, as well as randomixe between iris and X
+(when x appears, you have to click on another button than the one with the same collor)
 
 # Log: 23-01-18
 For today, I have finnished adding in my progress from another computer, onto the repo.
