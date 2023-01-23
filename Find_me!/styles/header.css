@@ -77,13 +77,12 @@ header h3 {
   border-radius: 50%;
   z-index: 2;
   -webkit-animation: bounce 2s infinite 2s;
-  animation: bounce 2s infinite 2s;
+          animation: bounce 2s infinite 2s;
   -webkit-transition: all .2s ease-in;
   transition: all .2s ease-in;
 }
 
 .btn1 a svg, .btn1 .start svg {
-  position: absolute;
   /*argin-left: calc(50% - 15.5px);*/
   margin: auto;
   display: block;
