@@ -38,6 +38,9 @@ var rules = document.getElementById("Rules");
 var load = document.getElementById("Load");
 var game = document.getElementById("Game");
 var countdown = document.getElementById("countdown");
+
+const collors = ["none", "red", "green", "blue"];
+
 /////////////////////////////////////////////////////////////////////////////////////////////(Preset conditions)
 load.style.display = "none";
 game.style.display = "none";
