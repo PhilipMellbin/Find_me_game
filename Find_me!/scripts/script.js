@@ -35,13 +35,17 @@ var start = document.getElementsByClassName("start");
 var header = document.getElementById("noticeme");//Load in class names
 var rules = document.getElementById("Rules");
 var load = document.getElementById("Load");
+var game = document.getElementById("Game");
+/////////////////////////////////////////////////////////////////////////////////////////////
+load.style.display = "none";
+game.style.display = "none";
 
 var eye = document.getElementsByClassName("eye")//Display "none" for all with class eye
 for(i = 0; i < eye.length; i++)
 {
   eye[i].style.display = "none";
 }
-function waitforme(ms)
+function waitforme(ms) //Delay function
 {
   return new Promise( resolve => 
     {
@@ -59,6 +63,10 @@ async function page(eye)//Switch page
     if(i != 3) //If on the final bage, just leave it
     {
       eye[i].style.display = "none";
+    }
+    else
+    {
+      game.style.display = "block"
     }
   }
 

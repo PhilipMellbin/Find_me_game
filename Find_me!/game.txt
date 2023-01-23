@@ -1,0 +1,8 @@
+everything with the class of ball will be a circle
+
+dirent id: difrent collor
+
+Sycle between collors (blue, red and green(randomized js)) in eye
+
+if id in eye = id in click:
+    add points
