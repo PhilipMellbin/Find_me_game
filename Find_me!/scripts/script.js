@@ -66,7 +66,7 @@ async function page(eye)//Switch page
     }
     else
     {
-      game.style.display = "block"
+      game.style.display = "block";
     }
   }
 
