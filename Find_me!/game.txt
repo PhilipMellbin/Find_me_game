@@ -6,3 +6,14 @@ Sycle between collors (blue, red and green(randomized js)) in eye
 
 if id in eye = id in click:
     add points
+
+--TO ADD LATER--
+
+X instead of iris(Don't click the collor)
+
+every 10 points(add another button)
+
+if collor count(10):
+
+start generating collors simmilar to the one requested
+

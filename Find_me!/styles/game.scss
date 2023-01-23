@@ -5,4 +5,13 @@
     height: $size;
     border-radius: 50%;
     background-color: aqua;
+    .ball-inner
+    {
+        $nsize: $size / 2;
+        width: $nsize;
+        height: $nsize;
+        margin:auto;
+        border-radius: 50%;
+        background-color: white;
+    }
 }
