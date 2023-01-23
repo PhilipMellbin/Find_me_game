@@ -30,29 +30,28 @@ document.addEventListener("DOMContentLoaded", function()
 {
 console.log("succesfully loaded website")
 
-//////////////////////////////////////////////////////////////////////////////////////////////
-var start = document.getElementsByClassName("start");
+//////////////////////////////////////////////////////////////////////////////////////////////(Declare variables)
+var start = document.getElementsByClassName("start");//Load in class names and ID:s
+var eye = document.getElementsByClassName("eye")
 var header = document.getElementById("noticeme");//Load in class names
 var rules = document.getElementById("Rules");
 var load = document.getElementById("Load");
 var game = document.getElementById("Game");
-/////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////(Preset conditions)
 load.style.display = "none";
 game.style.display = "none";
-
-var eye = document.getElementsByClassName("eye")//Display "none" for all with class eye
-for(i = 0; i < eye.length; i++)
+for(i = 0; i < eye.length; i++) 
 {
   eye[i].style.display = "none";
 }
-function waitforme(ms) //Delay function
+////////////////////////////////////////////////////////////////////////////////////////////////////(Functions)
+function waitforme(ms) //Delay function for "for" loops
 {
   return new Promise( resolve => 
     {
       setTimeout(()=> {resolve('')},ms );
     })
 }
-
 async function page(eye)//Switch page
 {
   for(var i = 0; i < eye.length; i++) //For every item in list eye
@@ -71,6 +70,7 @@ async function page(eye)//Switch page
   }
 
 }
+/////////////////////////////////////////////////////////////////////////////////////////////////(On clicks)
 
 
 for(i = 0; i < start.length; i++) //For every button with the class start: add a start function

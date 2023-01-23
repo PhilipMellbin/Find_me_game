@@ -1,4 +1,22 @@
 $length: 170px;
+///////////////////////////////////////////////////////////////////////////////////(Color ID:s)
+#0
+{
+    background-color: cornsilk;
+}
+#one
+{
+    background-color: indigo;
+}
+#two
+{
+    background-color: green;
+}
+#three
+{
+    background-color: red;
+}
+////////////////////////////////////////////////////////////////////////////////////////(eye)
 .eye
 {
     margin: auto;
@@ -89,7 +107,24 @@ $length: 170px;
     display:flex;
     justify-content: center;
 }
-.invisible
+////////////////////////////////////////////////////////////////////////////////////////////(Game)
+.ball
 {
-    display: none;
+    $size: 100px;
+    width: $size;
+    height: $size;
+    border-radius: 50%;
+    position:relative;
+    .ball-inner
+    {
+        position: absolute;
+        margin:auto;
+        $nsize: $size / 2;
+        width: $nsize;
+        height: $nsize;
+        margin: $nsize / 4;
+        margin-top: $nsize / 4;
+        border-radius: 50%;
+        background-color: white;
+    }
 }
