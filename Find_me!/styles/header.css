@@ -27,18 +27,17 @@ header div {
 }
 
 header h1, header h3 {
+  font-family: 'Oswald', sans-serif;
   text-align: center;
   margin: 0;
 }
 
 header h1 {
   font-size: 100px;
-  font-family: 'Oswald', sans-serif;
 }
 
 header h3 {
   font-size: 50px;
-  font-family: 'Oswald', sans-serif;
 }
 
 @-webkit-keyframes fade {

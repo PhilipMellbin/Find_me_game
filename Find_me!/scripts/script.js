@@ -37,6 +37,7 @@ var header = document.getElementById("noticeme");//Load in class names
 var rules = document.getElementById("Rules");
 var load = document.getElementById("Load");
 var game = document.getElementById("Game");
+var countdown = document.getElementById("countdown");
 /////////////////////////////////////////////////////////////////////////////////////////////(Preset conditions)
 load.style.display = "none";
 game.style.display = "none";
@@ -56,6 +57,7 @@ async function page(eye)//Switch page
 {
   for(var i = 0; i < eye.length; i++) //For every item in list eye
   {
+    countdown.innerHTML = (4 - (i + 1))
     eye[i].style.display = "flex"; 
     console.log("on page " + i) //Display page
     await waitforme(1000)
