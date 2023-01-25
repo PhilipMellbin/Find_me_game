@@ -33,7 +33,6 @@ console.log("succesfully loaded website")
 //////////////////////////////////////////////////////////////////////////////////////////////(Declare variables)
 var start = document.getElementsByClassName("start");//Load in class names and ID:s
 var eye = document.getElementsByClassName("eye");
-var iris = document.getElementsByClassName("iris1");
 var header = document.getElementById("noticeme");//Load in class names
 var rules = document.getElementById("Rules");
 var load = document.getElementById("Load");
@@ -41,8 +40,9 @@ var game = document.getElementById("Game");
 var countdown = document.getElementById("countdown");
 var button = document.getElementsByClassName("ball");
 
-const collors = ["none", "red", "green", "blue"];
-var curentcollor = "none"
+var collors = ["blank", "red", "green", "blue"];
+var curentcollor = "blank"
+var iris = document.getElementsByClassName("iris1");
 
 /////////////////////////////////////////////////////////////////////////////////////////////(Preset conditions)
 load.style.display = "none";
@@ -52,21 +52,26 @@ for(i = 0; i < eye.length; i++)
   eye[i].style.display = "none";
 }
 ////////////////////////////////////////////////////////////////////////////////////////////////////(Functions)
+function switchcollor(collors, iris, curentcollor) //Switch collor
+{
+  var col = 0;
+  while (col == 0)
+  {
+    col = Math.floor(Math.random() * 4);//generate random number
+  }
+  console.log("collor selected: " + collors[col]);
+  iris.id = (collors[col]); //retrieve the collor from collors array
+  console.log(iris.id);
+  curentcollor = collors[col];
+  console.log(curentcollor);
+  
+}
 function waitforme(ms) //Delay function for "for" loops
 {
   return new Promise( resolve => 
     {
       setTimeout(()=> {resolve('')},ms );
     })
-}
-function switchcollor(collors, iris, curentcollor) //Switch collor
-{
-  col = Math.floor(Math.random() * 4); //generate random number
-  a = iris.getElementById(curentcollor)
-  a.id = (collors[col]); //retrieve the collor from collors array
-  curentcollor = collors[col]
-  return curentcollor; //return the new collor for future use
-  
 }
 async function page(eye)//Switch page
 {
@@ -80,12 +85,9 @@ async function page(eye)//Switch page
     {
       eye[i].style.display = "none";
     }
-    else
-    {
-      game.style.display = "block";
-      curentcollor = switchcollor(collors, iris, curentcollor);
-    }
   }
+  game.style.display = "block";
+  switchcollor(collors, iris, curentcollor);
 
 }
 /////////////////////////////////////////////////////////////////////////////////////////////////(On clicks)
