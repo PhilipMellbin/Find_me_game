@@ -42,7 +42,7 @@ var button = document.getElementsByClassName("ball");
 
 var collors = ["blank", "red", "green", "blue"];
 var curentcollor = "blank"
-var iris = document.getElementsByClassName("iris1");
+var iris = document.getElementById(curentcollor) //needs to be id in order to change. So just define id as the only non game one(blank)
 
 /////////////////////////////////////////////////////////////////////////////////////////////(Preset conditions)
 load.style.display = "none";
