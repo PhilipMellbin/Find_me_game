@@ -34,3 +34,17 @@ For the final 3 days of the assignment, I will begin on a documentation document
 Have a nice day!
 
 --Philip Mellbin
+
+# log 23-01-29
+
+For today, I have finnished the loading sequence, and am curently stugeling with the on click function for the buttons.
+First it appered as "Cannot read properties of undefined (reading 'id')". Then i looked deper and found it retrived the last id.
+Excuse me if you are confused, i'm not the best at explaining. If you want to go through script.js and help me fix it, 
+feel free to do so. Just do it ON YOUR OWN BRANCH and SHOW TO ME BEFORE MERGING.
+
+For the next log, i will hopefully fix the on click function so i can later add the other features.
+As for the dates defined on log #23-01-23 , there may be delays.
+
+Have a nice day!
+
+--Philip Mellbin
