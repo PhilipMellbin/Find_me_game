@@ -39,9 +39,11 @@ var load = document.getElementById("Load");
 var game = document.getElementById("Game");
 var countdown = document.getElementById("countdown");
 var button = document.getElementsByClassName("ball");
+var score = document.getElementById("score")
 
 var collors = ["blank", "red", "green", "blue"];
 var curentcollor = "blank"
+var points = 0
 var iris = document.getElementById(curentcollor) //needs to be id in order to change. So just define id as the only non game one(blank)
 
 /////////////////////////////////////////////////////////////////////////////////////////////(Preset conditions)
@@ -59,11 +61,9 @@ function switchcollor(collors, iris, curentcollor) //Switch collor
   {
     col = Math.floor(Math.random() * 4);//generate random number
   }
-  console.log("collor selected: " + collors[col]);
   iris.id = (collors[col]); //retrieve the collor from collors array
-  console.log(iris.id);
+  console.log("collor selected: " + iris.id)
   curentcollor = collors[col];
-  console.log(curentcollor);
   
 }
 function waitforme(ms) //Delay function for "for" loops
@@ -107,6 +107,20 @@ for(i = 0; i < start.length; i++) //For every button with the class start: add a
   };
   
 };
+for(i = 0; i < button.length; i++) //Faulty function
+{
+  collor = button[i].id //Gets last id
+  button[i].onclick = function()
+  {
+    console.log(collor);
+    if(button[i].id == iris.id)
+    {
+      console.log("finaly. a point");
+      points = points + 1;
+      score.innerHTML = points;
+    }
+  }
+}
 
 });
 
