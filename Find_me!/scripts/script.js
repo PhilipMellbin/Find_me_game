@@ -39,10 +39,11 @@ var load = document.getElementById("Load");
 var game = document.getElementById("Game");
 var countdown = document.getElementById("countdown");
 var button = document.getElementsByClassName("ball");
+var score = document.getElementById("score")
 
 var collors = ["blank", "red", "green", "blue"];
 var curentcollor = "blank"
-var iris = document.getElementsByClassName("iris1");
+var iris = document.getElementById(curentcollor);
 
 /////////////////////////////////////////////////////////////////////////////////////////////(Preset conditions)
 load.style.display = "none";
@@ -60,7 +61,7 @@ function switchcollor(collors, iris, curentcollor) //Switch collor
     col = Math.floor(Math.random() * 4);//generate random number
   }
   console.log("collor selected: " + collors[col]);
-  iris.id = (collors[col]); //retrieve the collor from collors array
+  iris.id = collors[col]; //retrieve the collor from collors array
   console.log(iris.id);
   curentcollor = collors[col];
   console.log(curentcollor);
@@ -105,8 +106,19 @@ for(i = 0; i < start.length; i++) //For every button with the class start: add a
       page(eye)
     }
   };
-  
 };
+for(i = 0; i < button.length; i++)
+{
+  button[i].onclick = function()
+  {
+    if(button[i].id == iris.id)
+    {
+      score.innerHTML = +1;
+      switchcollor(collors, iris, curentcollor);
+    }
+
+  }
+}
 
 });
 
