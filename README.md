@@ -34,3 +34,16 @@ For the final 3 days of the assignment, I will begin on a documentation document
 Have a nice day!
 
 --Philip Mellbin
+
+# log 23-01-30
+
+For today, i have strugled with the click function. it worked partially, but only on gteen.
+The change i commited did not seem to work, because the start collor was always going to be
+incorect.
+
+For the next log, i will try to fix the on click function for the buttons. Hopefully, the road after
+that should be an easy one. If anyone wants to help aid in the project then feel free to do so. Just do the work on your own branch, and show it to me before merging.
+
+Have a nice day!
+
+--Philip Mellbin

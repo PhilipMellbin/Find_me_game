@@ -109,7 +109,7 @@ for(i = 0; i < start.length; i++) //For every button with the class start: add a
     }
   };
 };
-for(i = 0; i < button.length; i++) //Add on click function for 
+for(i = 0; i < button.length; i++) //Faulty function
 {
   var x = button[i].id; //Resets the selected collor
   console.log(x);
