@@ -43,11 +43,7 @@ var score = document.getElementById("score")
 
 var collors = ["blank", "red", "green", "blue"];
 var curentcollor = "blank"
-<<<<<<< HEAD
 var iris = document.getElementById(curentcollor);
-=======
-var iris = document.getElementById(curentcollor) //needs to be id in order to change. So just define id as the only non game one(blank)
->>>>>>> 73b7fff9a2d799d9de23b2f518ac5fb2de936817
 
 /////////////////////////////////////////////////////////////////////////////////////////////(Preset conditions)
 load.style.display = "none";
@@ -112,7 +108,7 @@ for(i = 0; i < start.length; i++) //For every button with the class start: add a
   };
 };
 for(i = 0; i < button.length; i++)
-{
+{//document.getElementsByClassName('myClassName')[0].id
   button[i].onclick = function()
   {
     if(button[i].id == iris.id)
