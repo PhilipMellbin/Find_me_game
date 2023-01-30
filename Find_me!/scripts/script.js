@@ -45,6 +45,8 @@ var collors = ["blank", "red", "green", "blue"];
 var curentcollor = "blank"
 var iris = document.getElementById(curentcollor);
 
+var points = 0;
+
 /////////////////////////////////////////////////////////////////////////////////////////////(Preset conditions)
 load.style.display = "none";
 game.style.display = "none";
@@ -107,13 +109,18 @@ for(i = 0; i < start.length; i++) //For every button with the class start: add a
     }
   };
 };
-for(i = 0; i < button.length; i++)
-{//document.getElementsByClassName('myClassName')[0].id
+for(i = 0; i < button.length; i++) //Add on click function for 
+{
+  var curentcollor = button[i].id; //Aparently can't put button[i].id directly in if section.
+  console.log("selected: " + curentcollor);
   button[i].onclick = function()
   {
-    if(button[i].id == iris.id)
+    console.log("selected: " + curentcollor);
+    console.log("corect collor: " + iris.id);
+    if(curentcollor == iris.id)
     {
-      score.innerHTML = +1;
+      points = points + 1;
+      score.innerHTML = points;
       switchcollor(collors, iris, curentcollor);
     }
 
