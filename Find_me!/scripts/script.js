@@ -111,8 +111,10 @@ for(i = 0; i < start.length; i++) //For every button with the class start: add a
 };
 for(i = 0; i < button.length; i++) //Add on click function for 
 {
-  var curentcollor = button[i].id; //Resets the selected collor
-  if (button[i].id == iris.id) //if the curentcollor
+  var x = button[i].id; //Resets the selected collor
+  console.log(x);
+  console.log(iris.id);
+  if (x == iris.id) //if the curentcollor
   {
     button[i].onclick = function() 
     {
