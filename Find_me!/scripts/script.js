@@ -89,8 +89,6 @@ async function page(eye)//Switch page
     }
   }
   game.style.display = "block";
-  curentcollor = switchcollor(collors, iris, curentcollor);
-  console.log("SELECTED " + curentcollor)
 
 }
 /////////////////////////////////////////////////////////////////////////////////////////////////(On clicks)
@@ -106,14 +104,17 @@ for(i = 0; i < start.length; i++) //For every button with the class start: add a
     if(load.style.display == "block") //Load page function on load
     {
       page(eye)
+      curentcollor = switchcollor(collors, iris, curentcollor);
+      console.log("SELECTED " + curentcollor)
     }
   };
 };
 for(i = 0; i < button.length; i++) //Add on click function for 
-{
-  var selectedcollor = button[i].id; //Aparently can't put button[i].id directly in if section.
+{ //Aparently can't put button[i].id directly in if section.
+  console.log(button[i].id)
   if(button[i].id == curentcollor)
   {
+    var selectedcollor = button[i].id;
     console.log("selected: " + selectedcollor);
     console.log("corect collor: " + curentcollor);
     selectedcollor.onclick = function()
@@ -124,17 +125,17 @@ for(i = 0; i < button.length; i++) //Add on click function for
     points = points + 1;
     score.innerHTML = points;
     curentcollor = switchcollor(collors, iris, curentcollor);
-   } 
+   }; 
   }
   else
   {
-    selectedcollor.onclick = function()
+    button[i].id.onclick = function()
    {
     console.log("selected: " + selectedcollor);
     console.log("corect collor: " + curentcollor);
 
     curentcollor = switchcollor(collors, iris, curentcollor);
-   } 
+   }; 
   }
 }
 
