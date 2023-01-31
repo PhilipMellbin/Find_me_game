@@ -40,11 +40,15 @@ var game = document.getElementById("Game");
 var countdown = document.getElementById("countdown");
 var button = document.getElementsByClassName("ball");
 var score = document.getElementById("score")
+var score = document.getElementById("score")
 
 var collors = ["blank", "red", "green", "blue"];
 var curentcollor = "blank"
 var points = 0
 var iris = document.getElementById(curentcollor) //needs to be id in order to change. So just define id as the only non game one(blank)
+var iris = document.getElementById(curentcollor);
+
+var points = 0;
 
 /////////////////////////////////////////////////////////////////////////////////////////////(Preset conditions)
 load.style.display = "none";
@@ -63,6 +67,9 @@ function switchcollor(collors, iris, curentcollor) //Switch collor
   }
   iris.id = (collors[col]); //retrieve the collor from collors array
   console.log("collor selected: " + iris.id)
+  console.log("collor selected: " + collors[col]);
+  iris.id = collors[col]; //retrieve the collor from collors array
+  console.log(iris.id);
   curentcollor = collors[col];
   
 }
@@ -105,20 +112,22 @@ for(i = 0; i < start.length; i++) //For every button with the class start: add a
       page(eye)
     }
   };
-  
 };
-for(i = 0; i < button.length; i++) //Faulty function
+for(i = 0; i < button.length; i++) //Add on click function for 
 {
-  collor = button[i].id //Gets last id
+  var curentcollor = button[i].id; //Aparently can't put button[i].id directly in if section.
+  console.log("selected: " + curentcollor);
   button[i].onclick = function()
   {
-    console.log(collor);
-    if(button[i].id == iris.id)
+    console.log("selected: " + curentcollor);
+    console.log("corect collor: " + iris.id);
+    if(curentcollor == iris.id)
     {
-      console.log("finaly. a point");
       points = points + 1;
       score.innerHTML = points;
+      switchcollor(collors, iris, curentcollor);
     }
+
   }
 }
 
