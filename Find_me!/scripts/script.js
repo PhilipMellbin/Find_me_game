@@ -111,6 +111,11 @@ for(i = 0; i < start.length; i++) //For every button with the class start: add a
 };
 for(i = 0; i < button.length; i++) //Add on click function for 
 { //Aparently can't put button[i].id directly in if section.
+  button[i].onclick = function(i)
+  {
+    console.log(button[i])
+    curentcollor = switchcollor(collors, iris, curentcollor);
+  }
   console.log(button[i].id)
   if(button[i].id == curentcollor)
   {
@@ -143,3 +148,19 @@ for(i = 0; i < button.length; i++) //Add on click function for
 
 
 //////////////////////////////////////////////////////////////////////////////////////////////
+/*var x = button[i].id; //Resets the selected collor
+  console.log(x);
+  console.log(iris.id);
+  if (x == iris.id) //if the curentcollor
+  {
+    button[i].onclick = function() 
+    {
+      points = points + 1;
+      score.innerHTML = score + 1;
+      switchcollor(collors, iris, curentcollor);
+    }
+  }
+  else
+  {
+    console.log("wrong collor");
+  }*/
