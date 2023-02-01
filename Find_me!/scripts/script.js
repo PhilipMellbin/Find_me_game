@@ -91,6 +91,15 @@ async function page(eye)//Switch page
   game.style.display = "block";
 
 }
+function addbuttons(button, i, curentcollor)
+{
+  if(button[i].id == curentcollor)
+  {
+    console.log("correct click");
+  }
+  curentcollor = switchcollor(collors, iris, curentcollor);
+  return(curentcollor);
+}
 /////////////////////////////////////////////////////////////////////////////////////////////////(On clicks)
 
 
@@ -111,9 +120,9 @@ for(i = 0; i < start.length; i++) //For every button with the class start: add a
 };
 for(i = 0; i < button.length; i++) //Add on click function for 
 { //Aparently can't put button[i].id directly in if section.
-  button[i].onclick = function(i)
+  button[i].onclick = function(button, i)
   {
-    console.log(button[i])
+    console.log("button: " + button)
     curentcollor = switchcollor(collors, iris, curentcollor);
   }
   console.log(button[i].id)
