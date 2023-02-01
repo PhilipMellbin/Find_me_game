@@ -120,12 +120,13 @@ for(i = 0; i < start.length; i++) //For every button with the class start: add a
 };
 for(i = 0; i < button.length; i++) //Add on click function for 
 { //Aparently can't put button[i].id directly in if section.
-  button[i].onclick = function(button, i)
+  console.log("collor: " + button[i].id)
+  button[i].onclick = function(i)
   {
-    console.log("button: " + button)
+    console.log("button: " + button[0].id)
     curentcollor = switchcollor(collors, iris, curentcollor);
   }
-  console.log(button[i].id)
+  /*console.log(button[i].id)
   if(button[i].id == curentcollor)
   {
     var selectedcollor = button[i].id;
@@ -150,7 +151,7 @@ for(i = 0; i < button.length; i++) //Add on click function for
 
     curentcollor = switchcollor(collors, iris, curentcollor);
    }; 
-  }
+  }*/
 }
 
 });
