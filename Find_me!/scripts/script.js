@@ -97,7 +97,8 @@ function Click(button, i, score, points) //Click function(Can't "onclick" direct
       console.log(button[i].id);
       if(button[i].id == curentcollor) //if the buttons id is equal to the curent color
       {
-        score.innerHTML = score.innerHTML + 1;
+        points++
+        score.innerHTML = points;
         console.log(score.innerHTML)
       }
       curentcollor = switchcollor(collors, iris, curentcollor); //switch collors and log the corect one
