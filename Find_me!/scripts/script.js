@@ -40,7 +40,6 @@ var game = document.getElementById("Game");
 var countdown = document.getElementById("countdown");
 var button = document.getElementsByClassName("ball");
 var score = document.getElementById("score")
-var score = document.getElementById("score")
 
 var collors = ["blank", "red", "green", "blue"];
 var curentcollor = "blank"
@@ -111,15 +110,21 @@ for(i = 0; i < start.length; i++) //For every button with the class start: add a
 };
 for(i = 0; i < button.length; i++) //Add on click function for 
 { //Aparently can't put button[i].id directly in if section.
-  function Click(button, i)
+  function Click(button, i, score, points)
   {
     button[i].onclick = function()
     {
       console.log(button[i].id);
+      if(button[i].id == curentcollor)
+      {
+        points = points + 1;
+        score.innerHTML = points;
+      }
       curentcollor = switchcollor(collors, iris, curentcollor);
     }
+    return points
   }
-  Click(button, i);
+  points = Click(button, i, score, points);
   
   /*console.log(button[i].id)
   if(button[i].id == curentcollor)
