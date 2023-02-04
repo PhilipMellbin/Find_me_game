@@ -48,3 +48,19 @@ As for the dates defined on log #23-01-23 , there may be delays.
 Have a nice day!
 
 --Philip Mellbin
+
+# log 23-02-04
+
+For today, i have fixed the onclick function for the collored buttons in script.js . Although the problem is fixed, it led to
+a new one: it counts points for the specific button press, and not for all buttons pressed. This is because, instead of pasing it through
+an onclick function directly, there is a seperate function. Here is the video for the solution(Credit to SoftAuthor): 
+https://softauthor.com/javascript-for-loop-click-event-issues-solutions/
+
+
+There may be a lack of certainty, but i think that this problem will be solved shortly. After that problem is fixed,
+i will go on to add random positioning to the buttons, and then have a timer. As for release time, there aren't anny
+specific scheduals for development(thanks to the previous problem), but expect a playable version in march.
+
+Have a nice day!
+
+--Philip Mellbin
