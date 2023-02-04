@@ -40,7 +40,6 @@ var game = document.getElementById("Game");
 var countdown = document.getElementById("countdown");
 var button = document.getElementsByClassName("ball");
 var score = document.getElementById("score")
-var score = document.getElementById("score")
 
 var collors = ["blank", "red", "green", "blue"];
 var curentcollor = "blank"
@@ -91,15 +90,22 @@ async function page(eye)//Switch page
   game.style.display = "block";
 
 }
-function addbuttons(button, i, curentcollor)
-{
-  if(button[i].id == curentcollor)
+function Click(button, i, score, points) //Click function(Can't "onclick" directly(https://www.youtube.com/watch?v=aZbgE3yhC2o&t=342s))
   {
-    console.log("correct click");
+    button[i].onclick = function()
+    {
+      console.log(button[i].id);
+      if(button[i].id == curentcollor) //if the buttons id is equal to the curent color
+      {
+        points++
+        score.innerHTML = points;
+        console.log(score.innerHTML)
+      }
+      curentcollor = switchcollor(collors, iris, curentcollor); //switch collors and log the corect one
+      console.log("corect collor: " + curentcollor);
+    }
+    return points //return points for counting
   }
-  curentcollor = switchcollor(collors, iris, curentcollor);
-  return(curentcollor);
-}
 /////////////////////////////////////////////////////////////////////////////////////////////////(On clicks)
 
 
@@ -120,39 +126,7 @@ for(i = 0; i < start.length; i++) //For every button with the class start: add a
 };
 for(i = 0; i < button.length; i++) //Add on click function for 
 { //Aparently can't put button[i].id directly in if section.
-  console.log("collor: " + button[i].id)
-  k = 0 + i;
-  button[i].onclick = function(i)
-  {
-    console.log("button: " + button[k].id)
-    curentcollor = switchcollor(collors, iris, curentcollor);
-  }
-  /*console.log(button[i].id)
-  if(button[i].id == curentcollor)
-  {
-    var selectedcollor = button[i].id;
-    console.log("selected: " + selectedcollor);
-    console.log("corect collor: " + curentcollor);
-    selectedcollor.onclick = function()
-   {
-    console.log("selected: " + selectedcollor);
-    console.log("corect collor: " + curentcollor);
-
-    points = points + 1;
-    score.innerHTML = points;
-    curentcollor = switchcollor(collors, iris, curentcollor);
-   }; 
-  }
-  else
-  {
-    button[i].id.onclick = function()
-   {
-    console.log("selected: " + selectedcollor);
-    console.log("corect collor: " + curentcollor);
-
-    curentcollor = switchcollor(collors, iris, curentcollor);
-   }; 
-  }*/
+  points = Click(button, i, score, points);
 }
 
 });
