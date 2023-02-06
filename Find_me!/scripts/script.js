@@ -44,6 +44,7 @@ var score = document.getElementById("score")
 var collors = ["blank", "red", "green", "blue"];
 var curentcollor = "blank"
 var points = 0
+var total = 0
 var iris = document.getElementById(curentcollor) //needs to be id in order to change. So just define id as the only non game one(blank)
 
 /////////////////////////////////////////////////////////////////////////////////////////////(Preset conditions)
@@ -98,9 +99,8 @@ function Click(button, i, score, points) //Click function(Can't "onclick" direct
       if(button[i].id == curentcollor) //if the buttons id is equal to the curent color
       {
         points++
-        score.innerHTML = points;
-        console.log(score.innerHTML)
       }
+      score.innerHTML = points;
       curentcollor = switchcollor(collors, iris, curentcollor); //switch collors and log the corect one
       console.log("corect collor: " + curentcollor);
     }
@@ -120,15 +120,14 @@ for(i = 0; i < start.length; i++) //For every button with the class start: add a
     {
       page(eye)
       curentcollor = switchcollor(collors, iris, curentcollor);
-      console.log("SELECTED " + curentcollor)
+      console.log("SELECTED " + curentcollor);
     }
   };
 };
 for(i = 0; i < button.length; i++) //Add on click function for 
 { //Aparently can't put button[i].id directly in if section.
-  points = Click(button, i, score, points);
+  score.innerHTML = Click(button, i, score, points);
 }
-
 });
 
 
