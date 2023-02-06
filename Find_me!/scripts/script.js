@@ -53,6 +53,7 @@ for(i = 0; i < eye.length; i++)
 {
   eye[i].style.display = "none";
 }
+console.log(eye,length)
 ////////////////////////////////////////////////////////////////////////////////////////////////////(Functions)
 function switchcollor(collors, iris, curentcollor) //Switch collor
 {
@@ -91,7 +92,7 @@ for(i = 0; i < start.length; i++) //For every button with the class start: add a
     header.style.display= "none";
     rules.style.display = "none"; //Display none for all eccept load and later game
     game.style.display = "block"; 
-    if(load.style.display == "block") //Load page function on load
+    if(game.style.display == "block") //Load page function on load
     {
       eye[3].style.display = "flex";
       curentcollor = switchcollor(collors, iris, curentcollor);
