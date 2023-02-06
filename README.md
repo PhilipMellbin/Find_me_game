@@ -64,3 +64,26 @@ specific scheduals for development(thanks to the previous problem), but expect a
 Have a nice day!
 
 --Philip Mellbin
+
+# log 23-02-06
+
+For today, i have fixed the related to the counting system. The source was that variable points
+was defined as a peramitor for function Click, instead of it being recognized as a var.
+This bug has however led me to prupose a new feture. 
+
+Instead of it being fixed -5 seconds, there could be an accumelative reduction effect based
+on what collor you clicked wrong. So clicking wrong on one collow would result in -1 seconds,
+and clicking it again will result in -2 seconds, and so on.
+
+Ore if this is to difricult, i will just add this accumilation across all buttons. So
+the more you misclick, the more time you loose(Will probably add).
+
+As for the future log, I will start adding a time function to change time based on wether you
+click right or wrong. And then add random placement of the buttons.
+
+Note that the animation on load will be temporarily disabled due to
+functionality purpouses. once the main game is complete, the animation might be added back.
+
+Have a nice day!
+
+--Philip Mellbin
