@@ -44,6 +44,7 @@ var score = document.getElementById("score")
 var collors = ["blank", "red", "green", "blue"];
 var curentcollor = "blank"
 var points = 0
+var total = 0
 var iris = document.getElementById(curentcollor) //needs to be id in order to change. So just define id as the only non game one(blank)
 
 /////////////////////////////////////////////////////////////////////////////////////////////(Preset conditions)
@@ -90,29 +91,21 @@ async function page(eye)//Switch page
   game.style.display = "block";
 
 }
-function Click(button, i) //Click function(Can't "onclick" directly(https://www.youtube.com/watch?v=aZbgE3yhC2o&t=342s))
-  {var total = 0
+function Click(button, i, points) //Click function(Can't "onclick" directly(https://www.youtube.com/watch?v=aZbgE3yhC2o&t=342s))
+  {
     button[i].onclick = function()
     {
       console.log(button[i].id);
       if(button[i].id == curentcollor) //if the buttons id is equal to the curent color
       {
-        total = 1
+        points++
+        score.innerHTML = points;
       }
       curentcollor = switchcollor(collors, iris, curentcollor); //switch collors and log the corect one
       console.log("corect collor: " + curentcollor);
-      score.innerHTML = total;
     }
-    return(total)
+    return points //return points for counting
   }
-function count(button)
-{
-  for(i = 0; i < button.length; i++)
-  {
-    points = Click(button, i)
-  }
-  score.innerHTML = points;
-}
 /////////////////////////////////////////////////////////////////////////////////////////////////(On clicks)
 
 
@@ -127,14 +120,17 @@ for(i = 0; i < start.length; i++) //For every button with the class start: add a
     {
       page(eye)
       curentcollor = switchcollor(collors, iris, curentcollor);
-      console.log("SELECTED " + curentcollor);
+      console.log("SELECTED " + curentcollor)
     }
   };
 };
 for(i = 0; i < button.length; i++) //Add on click function for 
 { //Aparently can't put button[i].id directly in if section.
-  Click(button, i);
+  points = Click(button, i, points);
+  score.innerHTML = points;
 }
+total = total + points;
+score.innerHTML = total;
 });
 
 
