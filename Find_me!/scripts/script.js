@@ -43,8 +43,9 @@ var score = document.getElementById("score")
 
 var collors = ["blank", "red", "green", "blue"];
 var curentcollor = "blank"
+var time = 0
 var points = 0
-var total = 0
+var left = 10
 var iris = document.getElementById(curentcollor) //needs to be id in order to change. So just define id as the only non game one(blank)
 
 /////////////////////////////////////////////////////////////////////////////////////////////(Preset conditions)
@@ -91,29 +92,33 @@ async function page(eye)//Switch page
   game.style.display = "block";
 
 }
-function Click(button, i, points) //Click function(Can't "onclick" directly(https://www.youtube.com/watch?v=aZbgE3yhC2o&t=342s))
+function register(time, left)
+{
+  left = left + time;
+  console.log(left)
+  score.innerHTML = left;
+}
+function Click(button, i, points, left) //Click function(Can't "onclick" directly(https://www.youtube.com/watch?v=aZbgE3yhC2o&t=342s))
   {
+    var time = 0
     button[i].onclick = function()
     {
       console.log(button[i].id);
       if(button[i].id == curentcollor) //if the buttons id is equal to the curent color
       {
-        points++
-        score.innerHTML = points;
+        time = 2
       }
+      else
+      {
+        time--
+      }
+      console.log(time)
+      register(time ,left);
       curentcollor = switchcollor(collors, iris, curentcollor); //switch collors and log the corect one
       console.log("corect collor: " + curentcollor);
     }
     return points //return points for counting
   }
-function register(time, check)
-{
-  if(check = false)
-  {
-    var left = left - time;
-    score.innerHTML = left;
-  }
-}
 function deleat(time)
 {
   time = time - 1;
@@ -142,8 +147,6 @@ for(i = 0; i < button.length; i++) //Add on click function for
   points = Click(button, i, points);
   score.innerHTML = points;
 }
-total = total + points;
-score.innerHTML = total;
 });
 
 
