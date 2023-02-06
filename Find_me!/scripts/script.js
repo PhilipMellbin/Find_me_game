@@ -106,6 +106,19 @@ function Click(button, i, points) //Click function(Can't "onclick" directly(http
     }
     return points //return points for counting
   }
+function register(time, check)
+{
+  if(check = false)
+  {
+    var left = left - time;
+    score.innerHTML = left;
+  }
+}
+function deleat(time)
+{
+  time = time - 1;
+  return(time);
+}
 /////////////////////////////////////////////////////////////////////////////////////////////////(On clicks)
 
 
