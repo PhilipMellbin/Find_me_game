@@ -92,38 +92,20 @@ async function page(eye)//Switch page
   game.style.display = "block";
 
 }
-function register(time, left)
-{
-  left = left + time;
-  console.log(left)
-  score.innerHTML = left;
-}
-function Click(button, i, points, left) //Click function(Can't "onclick" directly(https://www.youtube.com/watch?v=aZbgE3yhC2o&t=342s))
+function Click(button, i, points) //Click function(Can't "onclick" directly(https://www.youtube.com/watch?v=aZbgE3yhC2o&t=342s))
   {
-    var time = 0
     button[i].onclick = function()
     {
       console.log(button[i].id);
       if(button[i].id == curentcollor) //if the buttons id is equal to the curent color
       {
-        time = 2
+        score.innerHTML = points + 1;
       }
-      else
-      {
-        time--
-      }
-      console.log(time)
-      register(time ,left);
       curentcollor = switchcollor(collors, iris, curentcollor); //switch collors and log the corect one
       console.log("corect collor: " + curentcollor);
     }
     return points //return points for counting
   }
-function deleat(time)
-{
-  time = time - 1;
-  return(time);
-}
 /////////////////////////////////////////////////////////////////////////////////////////////////(On clicks)
 
 
@@ -144,8 +126,7 @@ for(i = 0; i < start.length; i++) //For every button with the class start: add a
 };
 for(i = 0; i < button.length; i++) //Add on click function for 
 { //Aparently can't put button[i].id directly in if section.
-  points = Click(button, i, points);
-  score.innerHTML = points;
+  Click(button, i, points);
 }
 });
 
