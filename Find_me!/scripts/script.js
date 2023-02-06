@@ -24,8 +24,6 @@ function showSlides(n) {
     slides[slideIndex-1].style.display = "flex";
   }
 }
-
-
 document.addEventListener("DOMContentLoaded", function()
 {
 console.log("succesfully loaded website")
@@ -39,12 +37,12 @@ var load = document.getElementById("Load");
 var game = document.getElementById("Game");
 var button = document.getElementsByClassName("ball");
 var score = document.getElementById("score")
+score.innerHTML = 0;
 
 var collors = ["blank", "red", "green", "blue"];
-var curentcollor = "blank"
+var curentcollor = "blank";
 var points = 0;
 var iris = document.getElementById(curentcollor); //needs to be id in order to change. So just define id as the only non game one(blank)
-var total = 0;
 
 /////////////////////////////////////////////////////////////////////////////////////////////(Preset conditions)
 load.style.display = "none";
@@ -68,7 +66,7 @@ function switchcollor(collors, iris, curentcollor) //Switch collor
   return(curentcollor);
   
 }
-function Click(button, i, points) //Click function(Can't "onclick" directly(https://www.youtube.com/watch?v=aZbgE3yhC2o&t=342s))
+function Click(button, i) //Click function(Can't "onclick" directly(https://www.youtube.com/watch?v=aZbgE3yhC2o&t=342s))
   {
     button[i].onclick = function()
     {
@@ -76,14 +74,13 @@ function Click(button, i, points) //Click function(Can't "onclick" directly(http
       if(button[i].id == curentcollor) //if the buttons id is equal to the curent color
       {
         points++;
+        score.innerHTML = points;
       }
       curentcollor = switchcollor(collors, iris, curentcollor); //switch collors and log the corect one
       console.log("corect collor: " + curentcollor);
     }
-    return points //return points for counting
   }
 /////////////////////////////////////////////////////////////////////////////////////////////////(On clicks)
-
 
 for(i = 0; i < start.length; i++) //For every button with the class start: add a start function
 {
@@ -97,13 +94,12 @@ for(i = 0; i < start.length; i++) //For every button with the class start: add a
       eye[3].style.display = "flex";
       curentcollor = switchcollor(collors, iris, curentcollor);
       console.log("SELECTED " + curentcollor)
-      gamerunning = true;
     }
   };
 };
 for(i = 0; i < button.length; i++) //Add on click function for 
 { //Aparently can't put button[i].id directly in if section.
-  points = Click(button, i, points);
+  Click(button, i)
 }
 });
 
