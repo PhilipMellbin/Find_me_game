@@ -44,7 +44,6 @@ var score = document.getElementById("score")
 var collors = ["blank", "red", "green", "blue"];
 var curentcollor = "blank"
 var points = 0
-var total = 0
 var iris = document.getElementById(curentcollor) //needs to be id in order to change. So just define id as the only non game one(blank)
 
 /////////////////////////////////////////////////////////////////////////////////////////////(Preset conditions)
@@ -91,20 +90,19 @@ async function page(eye)//Switch page
   game.style.display = "block";
 
 }
-function Click(button, i, score, points) //Click function(Can't "onclick" directly(https://www.youtube.com/watch?v=aZbgE3yhC2o&t=342s))
-  {
+function Click(button, i) //Click function(Can't "onclick" directly(https://www.youtube.com/watch?v=aZbgE3yhC2o&t=342s))
+  {var total = 0
     button[i].onclick = function()
     {
       console.log(button[i].id);
       if(button[i].id == curentcollor) //if the buttons id is equal to the curent color
       {
-        points++
+        total = total + 1 
+        score.innerHTML = total;
       }
-      score.innerHTML = points;
       curentcollor = switchcollor(collors, iris, curentcollor); //switch collors and log the corect one
       console.log("corect collor: " + curentcollor);
     }
-    return points //return points for counting
   }
 /////////////////////////////////////////////////////////////////////////////////////////////////(On clicks)
 
@@ -126,7 +124,7 @@ for(i = 0; i < start.length; i++) //For every button with the class start: add a
 };
 for(i = 0; i < button.length; i++) //Add on click function for 
 { //Aparently can't put button[i].id directly in if section.
-  score.innerHTML = Click(button, i, score, points);
+  Click(button, i);
 }
 });
 
