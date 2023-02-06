@@ -97,13 +97,22 @@ function Click(button, i) //Click function(Can't "onclick" directly(https://www.
       console.log(button[i].id);
       if(button[i].id == curentcollor) //if the buttons id is equal to the curent color
       {
-        total = total + 1 
-        score.innerHTML = total;
+        total = 1
       }
       curentcollor = switchcollor(collors, iris, curentcollor); //switch collors and log the corect one
       console.log("corect collor: " + curentcollor);
+      score.innerHTML = total;
     }
+    return(total)
   }
+function count(button)
+{
+  for(i = 0; i < button.length; i++)
+  {
+    points = Click(button, i)
+  }
+  score.innerHTML = points;
+}
 /////////////////////////////////////////////////////////////////////////////////////////////////(On clicks)
 
 
