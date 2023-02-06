@@ -93,7 +93,7 @@ for(i = 0; i < start.length; i++) //For every button with the class start: add a
     game.style.display = "block"; 
     if(load.style.display == "block") //Load page function on load
     {
-      eye[2].style.display = "flex";
+      eye[3].style.display = "flex";
       curentcollor = switchcollor(collors, iris, curentcollor);
       console.log("SELECTED " + curentcollor)
       gamerunning = true;
