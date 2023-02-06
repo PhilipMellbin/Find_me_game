@@ -105,19 +105,26 @@ for(i = 0; i < button.length; i++) //Add on click function for
 
 
 //////////////////////////////////////////////////////////////////////////////////////////////
-/*var x = button[i].id; //Resets the selected collor
-  console.log(x);
-  console.log(iris.id);
-  if (x == iris.id) //if the curentcollor
-  {
-    button[i].onclick = function() 
+/*function waitforme(ms) //Delay function for "for" loops
+{
+  return new Promise( resolve => 
     {
-      points = points + 1;
-      score.innerHTML = score + 1;
-      switchcollor(collors, iris, curentcollor);
+      setTimeout(()=> {resolve('')},ms );
+    })
+}
+async function page(eye)//Switch page
+{
+  for(var i = 0; i < eye.length; i++) //For every item in list eye
+  {
+    countdown.innerHTML = (4 - (i + 1))
+    eye[i].style.display = "flex"; 
+    console.log("on page " + i) //Display page
+    await waitforme(1000)
+    if(i != 3) //If on the final bage, just leave it
+    {
+      eye[i].style.display = "none";
     }
   }
-  else
-  {
-    console.log("wrong collor");
-  }*/
+  game.style.display = "block";
+
+}*/
