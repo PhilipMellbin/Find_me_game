@@ -37,14 +37,12 @@ var header = document.getElementById("noticeme");//Load in class names
 var rules = document.getElementById("Rules");
 var load = document.getElementById("Load");
 var game = document.getElementById("Game");
-var countdown = document.getElementById("countdown");
 var button = document.getElementsByClassName("ball");
 var score = document.getElementById("score")
 
 var collors = ["blank", "red", "green", "blue"];
 var curentcollor = "blank"
 var points = 0;
-var gamerunning = false;
 var iris = document.getElementById(curentcollor); //needs to be id in order to change. So just define id as the only non game one(blank)
 var total = 0;
 
@@ -69,29 +67,6 @@ function switchcollor(collors, iris, curentcollor) //Switch collor
   return(curentcollor);
   
 }
-function waitforme(ms) //Delay function for "for" loops
-{
-  return new Promise( resolve => 
-    {
-      setTimeout(()=> {resolve('')},ms );
-    })
-}
-async function page(eye)//Switch page
-{
-  for(var i = 0; i < eye.length; i++) //For every item in list eye
-  {
-    countdown.innerHTML = (4 - (i + 1))
-    eye[i].style.display = "flex"; 
-    console.log("on page " + i) //Display page
-    await waitforme(1000)
-    if(i != 3) //If on the final bage, just leave it
-    {
-      eye[i].style.display = "none";
-    }
-  }
-  game.style.display = "block";
-
-}
 function Click(button, i, points) //Click function(Can't "onclick" directly(https://www.youtube.com/watch?v=aZbgE3yhC2o&t=342s))
   {
     button[i].onclick = function()
@@ -99,7 +74,7 @@ function Click(button, i, points) //Click function(Can't "onclick" directly(http
       console.log(button[i].id);
       if(button[i].id == curentcollor) //if the buttons id is equal to the curent color
       {
-        points = 1
+        points++;
       }
       curentcollor = switchcollor(collors, iris, curentcollor); //switch collors and log the corect one
       console.log("corect collor: " + curentcollor);
@@ -115,24 +90,19 @@ for(i = 0; i < start.length; i++) //For every button with the class start: add a
   {
     header.style.display= "none";
     rules.style.display = "none"; //Display none for all eccept load and later game
-    load.style.display = "block"; 
+    game.style.display = "block"; 
     if(load.style.display == "block") //Load page function on load
     {
-      page(eye)
+      eye[2].style.display = "flex";
       curentcollor = switchcollor(collors, iris, curentcollor);
       console.log("SELECTED " + curentcollor)
       gamerunning = true;
     }
   };
 };
-while(gamerunning = true)
-{
-  for(i = 0; i < button.length; i++) //Add on click function for 
-  { //Aparently can't put button[i].id directly in if section.
-    points = Click(button, i, points);
-  }
-  total = total + points
-  score.innerHTML = total
+for(i = 0; i < button.length; i++) //Add on click function for 
+{ //Aparently can't put button[i].id directly in if section.
+  points = Click(button, i, points);
 }
 });
 
