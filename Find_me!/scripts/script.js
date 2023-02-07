@@ -56,7 +56,6 @@ for(i = 0; i < eye.length; i++)
 {
   eye[i].style.display = "none";
 }
-console.log(eye,length)
 ////////////////////////////////////////////////////////////////////////////////////////////////////(Functions)
 function switchcollor(collors, iris, curentcollor) //Switch collor
 {
@@ -90,16 +89,17 @@ function Click(button, i) //Click function(Can't "onclick" directly(https://www.
       console.log("corect collor: " + curentcollor);
     }
   }
-function count(time, left)
+function count(left)
 {
   console.log("tick")
-  left = left --
+  left = left - 1
+  console.log("left: " + left)
   time.innerHTML = left
   if(time == 0)
   {
-    clearInterval(interval);
     SubMiss = 0
     console.log("reset")
+    end();
   }
   else
   {
@@ -121,9 +121,10 @@ for(i = 0; i < start.length; i++) //For every button with the class start: add a
       eye[3].style.display = "flex";
       curentcollor = switchcollor(collors, iris, curentcollor);
       console.log("SELECTED " + curentcollor)
-      left = 10
+      left = 11
       time.innerHTML = left
-      var interval = setInterval(count(time, left), 1000);
+      interval = window.setInterval(function()
+      {count(left)}, 1000);
     }
   };
 };
