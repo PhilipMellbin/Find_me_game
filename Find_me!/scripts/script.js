@@ -89,13 +89,13 @@ function Click(button, i) //Click function(Can't "onclick" directly(https://www.
       console.log("corect collor: " + curentcollor);
     }
   }
-function count(left)
+function count()
 {
   console.log("tick")
-  left = left - 1
+  left--
   console.log("left: " + left)
   time.innerHTML = left
-  if(time == 0)
+  if(left == 0)
   {
     SubMiss = 0
     console.log("reset")
@@ -124,7 +124,7 @@ for(i = 0; i < start.length; i++) //For every button with the class start: add a
       left = 11
       time.innerHTML = left
       interval = window.setInterval(function()
-      {count(left)}, 1000);
+      {count()}, 1000);
     }
   };
 };
