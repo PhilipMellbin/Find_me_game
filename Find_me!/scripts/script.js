@@ -36,12 +36,17 @@ var rules = document.getElementById("Rules");
 var load = document.getElementById("Load");
 var game = document.getElementById("Game");
 var button = document.getElementsByClassName("ball");
-var score = document.getElementById("score")
+var score = document.getElementById("score");
+var time = document.getElementById("time")
 score.innerHTML = 0;
 
 var collors = ["blank", "red", "green", "blue"];
 var curentcollor = "blank";
 var points = 0;
+
+var left = 0; //Initial time(will be 10 seconds when started)
+var SubMiss = 0; //Subtract(misclick)
+
 var iris = document.getElementById(curentcollor); //needs to be id in order to change. So just define id as the only non game one(blank)
 
 /////////////////////////////////////////////////////////////////////////////////////////////(Preset conditions)
@@ -76,10 +81,31 @@ function Click(button, i) //Click function(Can't "onclick" directly(https://www.
         points++;
         score.innerHTML = points;
       }
+      else
+      {
+        SubMiss++;
+        left = left - SubMiss;
+      }
       curentcollor = switchcollor(collors, iris, curentcollor); //switch collors and log the corect one
       console.log("corect collor: " + curentcollor);
     }
   }
+function count(time, left)
+{
+  console.log("tick")
+  left = left --
+  time.innerHTML = left
+  if(time == 0)
+  {
+    SubMiss = 0
+    console.log("reset")
+  }
+  else
+  {
+    time.innerHTML = left
+    console.log("tock")
+  }
+}
 /////////////////////////////////////////////////////////////////////////////////////////////////(On clicks)
 
 for(i = 0; i < start.length; i++) //For every button with the class start: add a start function
@@ -94,6 +120,8 @@ for(i = 0; i < start.length; i++) //For every button with the class start: add a
       eye[3].style.display = "flex";
       curentcollor = switchcollor(collors, iris, curentcollor);
       console.log("SELECTED " + curentcollor)
+      left = 10
+      time.innerHTML = left
     }
   };
 };
@@ -101,7 +129,10 @@ for(i = 0; i < button.length; i++) //Add on click function for
 { //Aparently can't put button[i].id directly in if section.
   Click(button, i)
 }
-
+while(left != 0)
+{
+  setTimeout(count(time, left), 1000);
+}
 });
 
 
