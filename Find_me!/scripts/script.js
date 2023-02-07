@@ -97,6 +97,7 @@ function count(time, left)
   time.innerHTML = left
   if(time == 0)
   {
+    clearInterval(interval);
     SubMiss = 0
     console.log("reset")
   }
@@ -122,16 +123,13 @@ for(i = 0; i < start.length; i++) //For every button with the class start: add a
       console.log("SELECTED " + curentcollor)
       left = 10
       time.innerHTML = left
+      var interval = setInterval(count(time, left), 1000);
     }
   };
 };
 for(i = 0; i < button.length; i++) //Add on click function for 
 { //Aparently can't put button[i].id directly in if section.
   Click(button, i)
-}
-while(left != 0)
-{
-  setTimeout(count(time, left), 1000);
 }
 });
 
