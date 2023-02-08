@@ -87,7 +87,7 @@ function Click(button, i) //Click function(Can't "onclick" directly in for loop(
       //###############################generate random cordinates
       while(wwc >= 0)//Fale safe, so that the buttond does not disapear from the window
       {
-        wwc = Math.floor(Math.random() * wh - 150)  + 'px';
+        wwc = Math.floor(Math.random() * wh - 100)  + 'px';
       }
       button[i].style.top = wwc
       console.log(wwc)
