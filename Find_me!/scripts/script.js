@@ -120,8 +120,10 @@ for(i = 0; i < eye.length; i++) //set all eyes to invisible
 }
 for(i = 0; i < start.length; i++) //Add start function for every start button
 {
+  console.log(i)
   start[i].onclick = function() //on click function
   {
+    console.log("button no." + i)
     header.style.display= "none";
     rules.style.display = "none"; //Make only game vissible
     game.style.display = "block"; 
