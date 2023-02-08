@@ -87,3 +87,18 @@ functionality purpouses. once the main game is complete, the animation might be 
 Have a nice day!
 
 --Philip Mellbin
+
+# log 23-02-07
+
+For today, i have added a timer to the program, as well as the "miss click accumilation
+(second reduction from missclicks accumilates). Adding this feature was easyer than expected,
+only taking this day.
+
+For the next log, i will work on game over page. Display score, highscore, and survived time.
+It say "game over" over an eye with blank iris, followed by score, highscore and survived time,
+and a start button. It will take some time, but concidering how quickly the timer went,
+expect the same date of release.
+
+Have a nice day!
+
+--Philip Mellbin
