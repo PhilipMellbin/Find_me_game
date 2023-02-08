@@ -44,6 +44,11 @@ var maxscore = document.getElementById("maxscore")
 var highscore = document.getElementById("highscore")
 var time = document.getElementById("time")
 var timetext = document.getElementById("SurvivedTime")
+
+var ww = window.innerWidth - 250;
+var wwc = 0;
+var wh = window.innerHeight - 250;
+var whc = 0;
 /////////////////////////////////////////////////////////////////////////////////////////////(Preset conditions)
 load.style.display = "none";
 game.style.display = "none"; //Make load and game invicible
@@ -79,6 +84,20 @@ function Click(button, i) //Click function(Can't "onclick" directly in for loop(
   {
     button[i].onclick = function() //Add on click function for the n:th button
     {
+      //###############################generate random cordinates
+      while(wwc >= 0)//Fale safe, so that the buttond does not disapear from the window
+      {
+        wwc = Math.floor(Math.random() * wh - 150)  + 'px';
+      }
+      button[i].style.top = wwc
+      wwc = 0
+      while(whc >= 0)
+      {
+        whc = Math.floor(Math.random() * ww - 150)  + 'px';
+      }
+      button[i].style.left = whc
+      whc = 0
+      console.log(button[i].style.left)
       console.log(button[i].id);
       if(button[i].id == curentcollor)
       {
