@@ -98,7 +98,7 @@ function count() //time function
   left-- //subtract time
   console.log("left: " + left)
   time.innerHTML = left //display the time left
-  if(left >= 0)
+  if(left <= 0)
   {
     game.style.display = "none"
     gameover.style.display = "block";
