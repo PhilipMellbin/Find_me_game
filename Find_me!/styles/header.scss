@@ -18,25 +18,6 @@ header
     animation-duration: 5s;
     animation-fill-mode: forwards;
 }
-div
-{
-    display:flex;
-    justify-content: center;
-}
-h1, h3 //Most likely not needed
-{
-    font-family: 'Oswald', sans-serif;
-    text-align: center;
-    margin:0;
-}
-h1
-{
-    font-size: 100px;
-}
-h3
-{
-    font-size: $size2 * 0.5;
-}
 .btn1 //Important
     {
         margin-top: 10px;
@@ -89,3 +70,23 @@ h3
             }
         }
     }
+
+div
+{
+    display:flex;
+    justify-content: center;
+}
+h1, h3 //Most likely not needed
+{
+    font-family: 'Oswald', sans-serif;
+    text-align: center;
+    margin:0;
+}
+h1
+{
+    font-size: 100px;
+}
+h3
+{
+    font-size: $size2 * 0.5;
+}
