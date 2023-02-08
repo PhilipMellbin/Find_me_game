@@ -1,5 +1,5 @@
-@import "EyeAndGame.css";
-@import "header.css";
+@import url(c:\Sy21b_Programering\asignment\Find_me!\styles\EyeAndGame.css);
+@import url(c:\Sy21b_Programering\asignment\Find_me!\styles\header.css);
 html {
   scroll-behavior: smooth;
 }
