@@ -102,9 +102,10 @@ function count() //time function
   {
     game.style.display = "none"
     gameover.style.display = "block";
+    eye[4].style.display = "flex"
     SubMiss = 0
     console.log("reset")
-    end();
+    clearInterval(interval);    
   }
   else
   {
