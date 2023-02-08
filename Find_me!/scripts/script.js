@@ -39,7 +39,11 @@ var gameover = document.getElementById("GameOver")
 
 var button = document.getElementsByClassName("ball");
 var score = document.getElementById("score");
+
+var maxscore = document.getElementById("maxscore")
+var highscore = document.getElementById("highscore")
 var time = document.getElementById("time")
+var timetext = document.getElementById("SurvivedTime")
 /////////////////////////////////////////////////////////////////////////////////////////////(Preset conditions)
 load.style.display = "none";
 game.style.display = "none"; //Make load and game invicible
@@ -51,9 +55,11 @@ var iris = document.getElementById(curentcollor); //get first collor id
 
 var points = 0; //initial points start from zero
 score.innerHTML = points;
+var record = 0;
 
 var left = 0; //Initial time(will be 10 seconds when started)
 var SubMiss = 0; //Subtract(misclick)
+var survived = 0;
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////(Functions)
 function switchcollor(collors, iris, curentcollor) //Switch collor
@@ -98,12 +104,22 @@ function count() //time function
   left-- //subtract time
   console.log("left: " + left)
   time.innerHTML = left //display the time left
+  survived++
   if(left <= 0)
   {
     game.style.display = "none"
     gameover.style.display = "block";
     eye[4].style.display = "flex"
     SubMiss = 0
+
+    maxscore.innerHTML = points //add colected score, highscore and survived time
+    if (record < points)
+    {
+      record = points
+    }
+    highscore.innerHTML = record
+    timetext.innerHTML = survived
+
     console.log("reset")
     clearInterval(interval);    
   }
@@ -127,6 +143,7 @@ for(i = 0; i < start.length; i++) //Add start function for every start button
     header.style.display= "none";
     rules.style.display = "none"; //Make only game vissible
     game.style.display = "block"; 
+    gameover.style.display = "none";
     if(game.style.display == "block") //Once the game is visible...
     {
       eye[3].style.display = "flex"; //make the eye visible
