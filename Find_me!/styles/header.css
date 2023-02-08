@@ -117,7 +117,7 @@ div {
 h1, h3 {
   font-family: 'Oswald', sans-serif;
   text-align: center;
-  margin: 0;
+  margin: 5px;
 }
 
 h1 {
@@ -126,5 +126,9 @@ h1 {
 
 h3 {
   font-size: 50px;
+}
+
+.tiny {
+  font-size: 30px;
 }
 /*# sourceMappingURL=header.css.map */

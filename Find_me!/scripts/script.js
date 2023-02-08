@@ -80,7 +80,7 @@ function Click(button, i) //Click function(Can't "onclick" directly in for loop(
         score.innerHTML = points; //If click on the corect collor, add a point
         if(left < 30)
         {
-          left = left + 2;
+          left++
         }
       }
       else
