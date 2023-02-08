@@ -90,6 +90,7 @@ function Click(button, i) //Click function(Can't "onclick" directly in for loop(
         wwc = Math.floor(Math.random() * wh - 150)  + 'px';
       }
       button[i].style.top = wwc
+      console.log(wwc)
       wwc = 0
       while(whc >= 0)
       {
@@ -97,7 +98,7 @@ function Click(button, i) //Click function(Can't "onclick" directly in for loop(
       }
       button[i].style.left = whc
       whc = 0
-      console.log(button[i].style.left)
+      console.log(whc)
       console.log(button[i].id);
       if(button[i].id == curentcollor)
       {
