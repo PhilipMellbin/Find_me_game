@@ -35,12 +35,15 @@ var header = document.getElementById("noticeme");
 var rules = document.getElementById("Rules");
 var load = document.getElementById("Load");
 var game = document.getElementById("Game");
+var gameover = document.getElementById("GameOver")
+
 var button = document.getElementsByClassName("ball");
 var score = document.getElementById("score");
 var time = document.getElementById("time")
 /////////////////////////////////////////////////////////////////////////////////////////////(Preset conditions)
 load.style.display = "none";
 game.style.display = "none"; //Make load and game invicible
+gameover.style.display = "none";
 
 var collors = ["blank", "red", "green", "blue"]; //load in collors
 var curentcollor = "blank"; //first collor has to be defined as id
@@ -75,6 +78,10 @@ function Click(button, i) //Click function(Can't "onclick" directly in for loop(
       {
         points++;
         score.innerHTML = points; //If click on the corect collor, add a point
+        if(left < 30)
+        {
+          left = left + 2;
+        }
       }
       else
       {
@@ -93,6 +100,8 @@ function count() //time function
   time.innerHTML = left //display the time left
   if(left == 0)
   {
+    game.style.display = "none"
+    gameover.style.display = "block";
     SubMiss = 0
     console.log("reset")
     end();
