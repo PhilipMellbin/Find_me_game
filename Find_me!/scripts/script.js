@@ -35,12 +35,24 @@ var header = document.getElementById("noticeme");
 var rules = document.getElementById("Rules");
 var load = document.getElementById("Load");
 var game = document.getElementById("Game");
+var gameover = document.getElementById("GameOver")
+
 var button = document.getElementsByClassName("ball");
 var score = document.getElementById("score");
+
+var maxscore = document.getElementById("maxscore")
+var highscore = document.getElementById("highscore")
 var time = document.getElementById("time")
+var timetext = document.getElementById("SurvivedTime")
+
+var ww = window.innerWidth - 250;
+var wwc = 0;
+var wh = window.innerHeight - 250;
+var whc = 0;
 /////////////////////////////////////////////////////////////////////////////////////////////(Preset conditions)
 load.style.display = "none";
 game.style.display = "none"; //Make load and game invicible
+gameover.style.display = "none";
 
 var collors = ["blank", "red", "green", "blue"]; //load in collors
 var curentcollor = "blank"; //first collor has to be defined as id
@@ -48,9 +60,11 @@ var iris = document.getElementById(curentcollor); //get first collor id
 
 var points = 0; //initial points start from zero
 score.innerHTML = points;
+var record = 0;
 
 var left = 0; //Initial time(will be 10 seconds when started)
 var SubMiss = 0; //Subtract(misclick)
+var survived = 0;
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////(Functions)
 function switchcollor(collors, iris, curentcollor) //Switch collor
@@ -66,15 +80,40 @@ function switchcollor(collors, iris, curentcollor) //Switch collor
   return(curentcollor);
   
 }
+function switchposs() //random generate coordinates
+{
+  for(var i = 0; i < button.length; i++)
+  {
+    while(wwc <= 0)//Width(With falesafe)
+      {
+        wwc = Math.floor(Math.random() * ww - 100);
+      }
+      wwc = wwc + 'px';
+      button[i].style.left = wwc;
+      console.log(wwc)
+      wwc = 0
+
+      whc = Math.floor(Math.random() * wh - 250) ; //Height
+      whc = whc + 'px';
+      button[i].style.top = whc;
+      whc = 0
+  }
+}
 function Click(button, i) //Click function(Can't "onclick" directly in for loop(https://www.youtube.com/watch?v=aZbgE3yhC2o&t=342s))
   {
     button[i].onclick = function() //Add on click function for the n:th button
     {
+      switchposs();
+      
       console.log(button[i].id);
       if(button[i].id == curentcollor)
       {
         points++;
         score.innerHTML = points; //If click on the corect collor, add a point
+        if(left < 30)
+        {
+          left++
+        }
       }
       else
       {
@@ -91,11 +130,24 @@ function count() //time function
   left-- //subtract time
   console.log("left: " + left)
   time.innerHTML = left //display the time left
-  if(left == 0)
+  survived++
+  if(left <= 0)
   {
+    game.style.display = "none"
+    gameover.style.display = "block";
+    eye[4].style.display = "flex"
     SubMiss = 0
+
+    maxscore.innerHTML = points //add colected score, highscore and survived time
+    if (record < points)
+    {
+      record = points
+    }
+    highscore.innerHTML = record
+    timetext.innerHTML = survived
+
     console.log("reset")
-    end();
+    clearInterval(interval);    
   }
   else
   {
@@ -110,11 +162,14 @@ for(i = 0; i < eye.length; i++) //set all eyes to invisible
 }
 for(i = 0; i < start.length; i++) //Add start function for every start button
 {
+  console.log(i)
   start[i].onclick = function() //on click function
   {
+    console.log("button no." + i)
     header.style.display= "none";
     rules.style.display = "none"; //Make only game vissible
     game.style.display = "block"; 
+    gameover.style.display = "none";
     if(game.style.display == "block") //Once the game is visible...
     {
       eye[3].style.display = "flex"; //make the eye visible
@@ -131,20 +186,29 @@ for(i = 0; i < button.length; i++) //Add on click function for every "ball" butt
   Click(button, i)
 }
 });
-//////////////////////////////////////////////////////////////////////////////////////////////(load will be added back soon)
-/*var x = button[i].id; //Resets the selected collor
-  console.log(x);
-  console.log(iris.id);
-  if (x == iris.id) //if the curentcollor
-  {
-    button[i].onclick = function() 
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////
+/*function waitforme(ms) //Delay function for "for" loops
+{
+  return new Promise( resolve => 
     {
-      points = points + 1;
-      score.innerHTML = score + 1;
-      switchcollor(collors, iris, curentcollor);
+      setTimeout(()=> {resolve('')},ms );
+    })
+}
+async function page(eye)//Switch page
+{
+  for(var i = 0; i < eye.length; i++) //For every item in list eye
+  {
+    countdown.innerHTML = (4 - (i + 1))
+    eye[i].style.display = "flex"; 
+    console.log("on page " + i) //Display page
+    await waitforme(1000)
+    if(i != 3) //If on the final bage, just leave it
+    {
+      eye[i].style.display = "none";
     }
   }
-  else
-  {
-    console.log("wrong collor");
-  }*/
+  game.style.display = "block";
+
+}*/

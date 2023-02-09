@@ -102,3 +102,16 @@ expect the same date of release.
 Have a nice day!
 
 --Philip Mellbin
+
+# log 23-02-09
+
+For today, I have added the game over function, along with random positioning on the balls.
+As of right now, the core of the game seemes compleate. However, it could be more chalenging,
+which is why I may add random collors, another button, and a harsher penalty.
+
+I kind of whrote what I will do for the next log. So i'd like to ask you, the reader of this
+log, to go and play the game, and come with requests on how i could make it better. Thank you in advance!
+
+Have a nice day!
+
+--Philip Mellbin
