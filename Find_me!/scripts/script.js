@@ -128,23 +128,6 @@ function count() //time function
   left-- //subtract time
   console.log("left: " + left)
   time.innerHTML = left //display the time left
-  if(left == 0)
-  {
-    SubMiss = 0
-    console.log("reset")
-    end();
-  }
-  else
-  {
-    time.innerHTML = left
-    console.log("tock")
-  }
-function count() //time function
-{
-  console.log("tick")
-  left-- //subtract time
-  console.log("left: " + left)
-  time.innerHTML = left //display the time left
   survived++
   if(left <= 0)
   {
