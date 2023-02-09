@@ -85,18 +85,18 @@ function Click(button, i) //Click function(Can't "onclick" directly in for loop(
     button[i].onclick = function() //Add on click function for the n:th button
     {
       //###############################generate random cordinates
-      while(wwc >= 0)//Fale safe, so that the buttond does not disapear from the window
+      while(wwc <= 0)//Width(With falesafe)
       {
-        wwc = Math.floor(Math.random() * wh - 100)  + 'px';
+        wwc = Math.floor(Math.random() * ww - 100);
       }
-      button[i].style.top = wwc
+      wwc = wwc + 'px';
+      button[i].style.left = wwc;
       console.log(wwc)
       wwc = 0
-      while(whc >= 0)
-      {
-        whc = Math.floor(Math.random() * ww - 150)  + 'px';
-      }
-      button[i].style.left = whc
+
+      whc = Math.floor(Math.random() * wh - 250) ; //Height
+      whc = whc + 'px';
+      button[i].style.top = whc;
       whc = 0
       console.log(whc)
       console.log(button[i].id);
