@@ -1,21 +1,6 @@
-Pseudo code time
+Randome collor generator()
 
-count(time, left, SubNatural)
-{
-    left = left - (SubNatural)
-    if left == 0
-    {
-        SubMiss = 0
-        start game over
-    }
-    else
-    {
-        time.textbox = left
-    }
-}
-while left > 0 <-- Could start prematurely
-{
-    count(time, left, SubNatural)
-}
+iris id = Randome collor generator()
 
--- if missclick --> SubMiss++ left = left - Submiss
+for every button
+button[n].id = Randome collor generator()
