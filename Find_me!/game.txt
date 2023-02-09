@@ -1,19 +1,21 @@
-everything with the class of ball will be a circle
+Pseudo code time
 
-dirent id: difrent collor
+count(time, left, SubNatural)
+{
+    left = left - (SubNatural)
+    if left == 0
+    {
+        SubMiss = 0
+        start game over
+    }
+    else
+    {
+        time.textbox = left
+    }
+}
+while left > 0 <-- Could start prematurely
+{
+    count(time, left, SubNatural)
+}
 
-Sycle between collors (blue, red and green(randomized js)) in eye
-
-if id in eye = id in click:
-    add points
-
---TO ADD LATER--
-
-X instead of iris(Don't click the collor)
-
-every 10 points(add another button)
-
-if collor count(10):
-
-start generating collors simmilar to the one requested
-
+-- if missclick --> SubMiss++ left = left - Submiss

@@ -32,6 +32,7 @@ console.log("succesfully loaded website")
 var start = document.getElementsByClassName("start");//Load in class names and ID:s
 var eye = document.getElementsByClassName("eye");
 var header = document.getElementById("noticeme");
+var header = document.getElementById("noticeme");
 var rules = document.getElementById("Rules");
 var load = document.getElementById("Load");
 var game = document.getElementById("Game");
@@ -52,7 +53,6 @@ var whc = 0;
 /////////////////////////////////////////////////////////////////////////////////////////////(Preset conditions)
 load.style.display = "none";
 game.style.display = "none"; //Make load and game invicible
-gameover.style.display = "none";
 
 var collors = ["blank", "red", "green", "blue"]; //load in collors
 var curentcollor = "blank"; //first collor has to be defined as id
@@ -60,11 +60,9 @@ var iris = document.getElementById(curentcollor); //get first collor id
 
 var points = 0; //initial points start from zero
 score.innerHTML = points;
-var record = 0;
 
 var left = 0; //Initial time(will be 10 seconds when started)
 var SubMiss = 0; //Subtract(misclick)
-var survived = 0;
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////(Functions)
 function switchcollor(collors, iris, curentcollor) //Switch collor
@@ -123,6 +121,23 @@ function Click(button, i) //Click function(Can't "onclick" directly in for loop(
       curentcollor = switchcollor(collors, iris, curentcollor); //switch collors and log the corect one
       console.log("corect collor: " + curentcollor);
     }
+  }
+function count() //time function
+{
+  console.log("tick")
+  left-- //subtract time
+  console.log("left: " + left)
+  time.innerHTML = left //display the time left
+  if(left == 0)
+  {
+    SubMiss = 0
+    console.log("reset")
+    end();
+  }
+  else
+  {
+    time.innerHTML = left
+    console.log("tock")
   }
 function count() //time function
 {
