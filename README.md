@@ -64,3 +64,54 @@ specific scheduals for development(thanks to the previous problem), but expect a
 Have a nice day!
 
 --Philip Mellbin
+
+# log 23-02-06
+
+For today, i have fixed the related to the counting system. The source was that variable points
+was defined as a peramitor for function Click, instead of it being recognized as a var.
+This bug has however led me to prupose a new feture. 
+
+Instead of it being fixed -5 seconds, there could be an accumelative reduction effect based
+on what collor you clicked wrong. So clicking wrong on one collow would result in -1 seconds,
+and clicking it again will result in -2 seconds, and so on.
+
+Ore if this is to difricult, i will just add this accumilation across all buttons. So
+the more you misclick, the more time you loose(Will probably add).
+
+As for the future log, I will start adding a time function to change time based on wether you
+click right or wrong. And then add random placement of the buttons.
+
+Note that the animation on load will be temporarily disabled due to
+functionality purpouses. once the main game is complete, the animation might be added back.
+
+Have a nice day!
+
+--Philip Mellbin
+
+# log 23-02-07
+
+For today, i have added a timer to the program, as well as the "miss click accumilation
+(second reduction from missclicks accumilates). Adding this feature was easyer than expected,
+only taking this day.
+
+For the next log, i will work on game over page. Display score, highscore, and survived time.
+It say "game over" over an eye with blank iris, followed by score, highscore and survived time,
+and a start button. It will take some time, but concidering how quickly the timer went,
+expect the same date of release.
+
+Have a nice day!
+
+--Philip Mellbin
+
+# log 23-02-09
+
+For today, I have added the game over function, along with random positioning on the balls.
+As of right now, the core of the game seemes compleate. However, it could be more chalenging,
+which is why I may add random collors, another button, and a harsher penalty.
+
+I kind of whrote what I will do for the next log. So i'd like to ask you, the reader of this
+log, to go and play the game, and come with requests on how i could make it better. Thank you in advance!
+
+Have a nice day!
+
+--Philip Mellbin
