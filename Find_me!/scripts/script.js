@@ -80,12 +80,11 @@ function switchcollor(collors, iris, curentcollor) //Switch collor
   return(curentcollor);
   
 }
-function Click(button, i) //Click function(Can't "onclick" directly in for loop(https://www.youtube.com/watch?v=aZbgE3yhC2o&t=342s))
+function switchposs() //random generate coordinates
+{
+  for(var i = 0; i < button.length; i++)
   {
-    button[i].onclick = function() //Add on click function for the n:th button
-    {
-      //###############################generate random cordinates
-      while(wwc <= 0)//Width(With falesafe)
+    while(wwc <= 0)//Width(With falesafe)
       {
         wwc = Math.floor(Math.random() * ww - 100);
       }
@@ -98,7 +97,14 @@ function Click(button, i) //Click function(Can't "onclick" directly in for loop(
       whc = whc + 'px';
       button[i].style.top = whc;
       whc = 0
-      console.log(whc)
+  }
+}
+function Click(button, i) //Click function(Can't "onclick" directly in for loop(https://www.youtube.com/watch?v=aZbgE3yhC2o&t=342s))
+  {
+    button[i].onclick = function() //Add on click function for the n:th button
+    {
+      switchposs();
+      
       console.log(button[i].id);
       if(button[i].id == curentcollor)
       {
