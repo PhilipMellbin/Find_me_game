@@ -19,6 +19,7 @@ h2 //Most likely not needed
         font-family: 'Oswald', sans-serif;
 }
 $width: 426px;
+$height: 354px;
 .info {
     display: flex;
     justify-content: space-evenly;
@@ -38,6 +39,7 @@ $width: 426px;
         border-radius: 10px;
         width: $width;
         height: 354px;
+        margin: auto;
         p
         {
             text-align: center;
@@ -45,6 +47,16 @@ $width: 426px;
         }
     }
 }
+.grid {
+    div
+    {
+        margin: auto;
+        background-color: white;
+        border-radius: 10px;
+        width: 227.5px;
+        height: 217px;
+    }
+    }
 div#Eye
 {
     display: none;
