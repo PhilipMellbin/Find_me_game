@@ -54,19 +54,7 @@ $length: 170px;
     display: flex;
     justify-content: center;
 }
-.Iris3 {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    content: "\2715"; /* use the hex value here... */
-    font-size: 50px; 
-    color: #FFF;
-    line-height: 100px;
-    text-align: center;
-}
-.Pupil
+.Pupil1
 {
     $NewLength: $length / 3.4;
     width: $NewLength;
@@ -100,6 +88,28 @@ $length: 170px;
     display: flex;
     justify-content: center;
 }
+.Pupil2 {
+    $NewLength: $length / 3.4;
+    width: $NewLength;
+    height: $NewLength;
+    margin:auto;
+    position: relative;
+  }
+  .Pupil2:before, .Pupil2:after {
+    position: absolute;
+    left: 21.5px;
+    content: ' ';
+    height: 50px;
+    width: 10px;
+    background-color: #000000;
+    margin:auto;
+  }
+  .Pupil2:before {
+    transform: rotate(45deg);
+  }
+  .Pupil2:after {
+    transform: rotate(-45deg);
+  }
 .Shape3
 {
     width: 70%;
