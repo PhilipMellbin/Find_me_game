@@ -54,6 +54,18 @@ $length: 170px;
     display: flex;
     justify-content: center;
 }
+.Iris3 {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    content: "\2715"; /* use the hex value here... */
+    font-size: 50px; 
+    color: #FFF;
+    line-height: 100px;
+    text-align: center;
+}
 .Pupil
 {
     $NewLength: $length / 3.4;

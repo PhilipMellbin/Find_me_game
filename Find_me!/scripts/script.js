@@ -111,10 +111,6 @@ function Click(button, i) //Click function(Can't "onclick" directly in for loop(
       {
         points++;
         score.innerHTML = points; //If click on the corect collor, add a point
-        if(left < 30)
-        {
-          left++
-        }
       }
       else
       {
@@ -176,7 +172,7 @@ for(i = 0; i < start.length; i++) //Add start function for every start button
       eye[3].style.display = "flex"; //make the eye visible
       curentcollor = switchcollor(collors, iris, curentcollor); //switch collor from blank
       console.log("SELECTED " + curentcollor)
-      left = 10 //the time left(10 seconds start time)
+      left = 30 //the time left(10 seconds start time)
       time.innerHTML = left 
       interval = window.setInterval(function(){count()}, 1000); //set timeout intervalt for count
     }
