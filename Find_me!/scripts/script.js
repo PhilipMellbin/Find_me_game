@@ -53,6 +53,7 @@ var whc = 0;
 /////////////////////////////////////////////////////////////////////////////////////////////(Preset conditions)
 load.style.display = "none";
 game.style.display = "none"; //Make load and game invicible
+gameover.style.display = "none";
 
 var collors = ["blank", "red", "green", "blue"]; //load in collors
 var curentcollor = "blank"; //first collor has to be defined as id
@@ -60,9 +61,11 @@ var iris = document.getElementById(curentcollor); //get first collor id
 
 var points = 0; //initial points start from zero
 score.innerHTML = points;
+var record = 0;
 
 var left = 0; //Initial time(will be 10 seconds when started)
 var SubMiss = 0; //Subtract(misclick)
+var survived = 0;
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////(Functions)
 function switchcollor(collors, iris, curentcollor) //Switch collor
