@@ -131,7 +131,7 @@ function Click(button, i) //Click function(Can't "onclick" directly in for loop(
       switchposs();
       
       console.log(button[i].id);
-      if(button[i].id == curentcollor)
+      if((button[i].id == curentcollor & pupil.className == "Pupil1") ^ (button[i].id != curentcollor & pupil.className == "Pupil2"))
       {
         points++;
         score.innerHTML = points; //If click on the corect collor, add a point
