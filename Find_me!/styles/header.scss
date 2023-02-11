@@ -81,6 +81,16 @@ h1, h3 //Most likely not needed
     font-family: 'Oswald', sans-serif;
     text-align: center;
     margin:5px;
+    svg
+    {
+        $size: 50px;
+        margin: auto;
+        display: block;
+        width: $size;
+        height: $size;
+        color: black;
+        text-decoration: none;
+    }
 }
 h1
 {
