@@ -85,32 +85,26 @@ function switchcollor(collors, iris, curentcollor) //Switch collor
 }
 function siwtchpupil()
 {
-  let pup = 0
-  while (pup == 0)
-  {
-    pup = Math.floor(Math.random() * 3);
-  }
-  console.log("pupil number" + pup)
+  pup = Math.floor(Math.random() * 3); //randomly generate  number for pupil
+  console.log("pupil number" + pup) //control
   if(pup == 2)
   {
-    pupil.classList.remove('Pupil1');
+    pupil.classList.remove('Pupil1'); //if roll a 2, change to the X pupil
     pupil.classList.add('Pupil2');
     console.log("switched to Pupil2");
-    pup = 0
   }
   else
   {
-    pupil.classList.remove('Pupil2');
+    pupil.classList.remove('Pupil2'); //do the opisit if roll a 1
     pupil.classList.add('Pupil1');
     console.log("switched to Pupil1")
-    pup = 0
   }
 }
 function switchposs() //random generate coordinates
 {
   for(var i = 0; i < button.length; i++)
   {
-    while(wwc <= 0)//Width(With falesafe)
+    while(wwc <= 0)//Length(Falesafe, if style.left < 0, the element will disepear)
       {
         wwc = Math.floor(Math.random() * ww - 100);
       }
@@ -128,10 +122,11 @@ function Click(button, i) //Click function(Can't "onclick" directly in for loop(
   {
     button[i].onclick = function() //Add on click function for the n:th button
     {
-      switchposs();
+      switchposs(); //switch positions
       
       console.log(button[i].id);
       if((button[i].id == curentcollor & pupil.className == "Pupil1") ^ (button[i].id != curentcollor & pupil.className == "Pupil2"))
+      //if you click the same collor with regular pupil, or click difrent collor with X pupil.
       {
         points++;
         score.innerHTML = points; //If click on the corect collor, add a point
@@ -154,11 +149,11 @@ function count() //time function
   console.log("left: " + left)
   time.innerHTML = left //display the time left
   survived++
-  if(left <= 0)
+  if(left <= 0) //once the time runs out...
   {
-    game.style.display = "none"
+    game.style.display = "none" //...make game over visible
     gameover.style.display = "block";
-    eye[4].style.display = "flex"
+    eye[4].style.display = "flex" //display GameOver eye
     SubMiss = 0
 
     maxscore.innerHTML = points //add colected score, highscore and survived time
@@ -178,7 +173,7 @@ function count() //time function
     console.log("tock")
   }
 }
-/////////////////////////////////////////////////////////////////////////////////////////////////(Aplication of functions and variables)
+/////////////////////////////////////////////////////////////////////////////////////////////////(Aplication of functions for classes)
 for(i = 0; i < eye.length; i++) //set all eyes to invisible
 {
   eye[i].style.display = "none";
@@ -211,7 +206,7 @@ for(i = 0; i < button.length; i++) //Add on click function for every "ball" butt
 });
 
 
-//////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////(Experimental functions)
 /*function waitforme(ms) //Delay function for "for" loops
 {
   return new Promise( resolve => 
