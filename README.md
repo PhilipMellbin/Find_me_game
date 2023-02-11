@@ -115,3 +115,19 @@ log, to go and play the game, and come with requests on how i could make it bett
 Have a nice day!
 
 --Philip Mellbin
+
+# log 23-02-11
+
+For today, the game is mostly compleate. The game itself works, the info works, the gameover segment works, and
+i've eaven added some extra detailes(Example: Adding bootstrap icons). No random collow was added, since adding
+X pupil did the job. Though, i could try to add it.
+
+For the next log, i will begin the documentation, and maby add something to spice things up. Otherwise, this
+game is finnished. So please enjoy, and leave requests for featurs to add/remove to further improve this game.
+For now, thank you for reading this log, and following through this journey of pain and joy. 
+
+Hope you have a nice week!
+
+--Philip Mellbin
+
+
