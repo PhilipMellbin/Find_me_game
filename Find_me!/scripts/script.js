@@ -40,6 +40,8 @@ var gameover = document.getElementById("GameOver")
 
 var button = document.getElementsByClassName("ball");
 var score = document.getElementById("score");
+var pupil = document.getElementById("pupil");
+
 
 var maxscore = document.getElementById("maxscore")
 var highscore = document.getElementById("highscore")
@@ -70,7 +72,7 @@ var survived = 0;
 ////////////////////////////////////////////////////////////////////////////////////////////////////(Functions)
 function switchcollor(collors, iris, curentcollor) //Switch collor
 {
-  var col = 0;
+  let col = 0;
   while (col == 0)
   {
     col = Math.floor(Math.random() * 4);//generate random number
@@ -80,6 +82,29 @@ function switchcollor(collors, iris, curentcollor) //Switch collor
   curentcollor = collors[col];
   return(curentcollor);
   
+}
+function siwtchpupil()
+{
+  let pup = 0
+  while (pup == 0)
+  {
+    pup = Math.floor(Math.random() * 3);
+  }
+  console.log("pupil number" + pup)
+  if(pup == 2)
+  {
+    pupil.classList.remove('Pupil1');
+    pupil.classList.add('Pupil2');
+    console.log("switched to Pupil2");
+    pup = 0
+  }
+  else
+  {
+    pupil.classList.remove('Pupil2');
+    pupil.classList.add('Pupil1');
+    console.log("switched to Pupil1")
+    pup = 0
+  }
 }
 function switchposs() //random generate coordinates
 {
@@ -91,7 +116,6 @@ function switchposs() //random generate coordinates
       }
       wwc = wwc + 'px';
       button[i].style.left = wwc;
-      console.log(wwc)
       wwc = 0
 
       whc = Math.floor(Math.random() * wh - 250) ; //Height
@@ -118,6 +142,8 @@ function Click(button, i) //Click function(Can't "onclick" directly in for loop(
         left = left - SubMiss; //If misclick, left will decrease linearly
       }
       curentcollor = switchcollor(collors, iris, curentcollor); //switch collors and log the corect one
+      siwtchpupil()
+      
       console.log("corect collor: " + curentcollor);
     }
   }
