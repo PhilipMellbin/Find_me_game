@@ -20,7 +20,7 @@ h2 //Most likely not needed
 }
 $width: 426px;
 $height: 354px;
-.info {
+.info, .grid {
     display: flex;
     justify-content: space-evenly;
     background-color: aliceblue;

@@ -17,7 +17,7 @@ h2 {
   font-family: "Oswald", sans-serif;
 }
 
-.info {
+.info, .grid {
   display: flex;
   justify-content: space-evenly;
   background-color: aliceblue;
@@ -26,18 +26,18 @@ h2 {
   height: 400px;
   margin: auto;
 }
-.info img {
+.info img, .grid img {
   width: 50%;
   height: 50%;
 }
-.info div {
+.info div, .grid div {
   background-color: white;
   border-radius: 10px;
   width: 426px;
   height: 354px;
   margin: auto;
 }
-.info div p {
+.info div p, .grid div p {
   text-align: center;
   margin-top: 35%;
 }
