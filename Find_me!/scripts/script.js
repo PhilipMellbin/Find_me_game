@@ -195,6 +195,12 @@ for(i = 0; i < start.length; i++) //Add start function for every start button
       console.log("SELECTED " + curentcollor)
       left = 30 //the time left(10 seconds start time)
       time.innerHTML = left 
+      highscore.innerHTML = 0
+      survived = 0;
+      points = 0; //initial points start from zero
+      score.innerHTML = points;
+
+
       interval = window.setInterval(function(){count()}, 1000); //set timeout intervalt for count
     }
   };
