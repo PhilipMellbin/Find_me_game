@@ -76,9 +76,12 @@ div
     display:flex;
     justify-content: center;
 }
-h1, h3 //Most likely not needed
+h1, h3, p
 {
     font-family: 'Oswald', sans-serif;
+}
+h1, h3 //Most likely not needed
+{
     text-align: center;
     margin:5px;
     svg

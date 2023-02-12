@@ -27,8 +27,10 @@ h2 {
   margin: auto;
 }
 .info img, .grid img {
-  width: 50%;
-  height: 50%;
+  width: 80%;
+  max-width: 426px;
+  height: 354px;
+  margin: auto;
 }
 .info div, .grid div {
   background-color: white;

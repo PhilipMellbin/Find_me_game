@@ -63,8 +63,11 @@ div {
   justify-content: center;
 }
 
-h1, h3 {
+h1, h3, p {
   font-family: "Oswald", sans-serif;
+}
+
+h1, h3 {
   text-align: center;
   margin: 5px;
 }

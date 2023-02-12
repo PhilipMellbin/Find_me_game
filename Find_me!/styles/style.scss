@@ -30,8 +30,10 @@ $height: 354px;
     margin:auto;
     img
     {
-        width:50%;
-        height:50%;
+        width: 80%;
+        max-width: $width;
+        height: 354px;
+        margin: auto;
     }
     div
     {
