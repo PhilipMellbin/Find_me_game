@@ -100,6 +100,34 @@ function siwtchpupil()
     console.log("switched to Pupil1")
   }
 }
+function waitforme(ms) //Delay function for "for" loops
+{
+  return new Promise( resolve => 
+    {
+      setTimeout(()=> {resolve('')},ms );
+    })
+}
+async function page(eye)//Switch page
+{
+  for(var i = 0; i < eye.length - 1; i++) //For every item in list eye
+  {
+    countdown.innerHTML = (4 - (i + 1))
+    eye[i].style.display = "flex"; 
+    console.log("on page " + i) //Display page
+    await waitforme(1000)
+    if(i != 3) //If on the final bage, just leave it
+    {
+      eye[i].style.display = "none";
+    }
+  }
+  game.style.display = "block";
+  curentcollor = switchcollor(collors, iris, curentcollor); //switch collor from blank
+  console.log("SELECTED " + curentcollor)
+  left = 30 //the time left(30 seconds)
+  time.innerHTML = left 
+  interval = window.setInterval(function(){count()}, 1000); //set timeout intervalt for count
+
+}
 function switchposs() //random generate coordinates
 {
   for(var i = 0; i < button.length; i++)
@@ -186,16 +214,12 @@ for(i = 0; i < start.length; i++) //Add start function for every start button
     console.log("button no." + i)
     header.style.display= "none";
     rules.style.display = "none"; //Make only game vissible
-    game.style.display = "block"; 
+    game.style.display = "none"; 
     gameover.style.display = "none";
-    if(game.style.display == "block") //Once the game is visible...
+    load.style.display = "block"
+    if(load.style.display == "block") //Once the game is visible...
     {
-      eye[3].style.display = "flex"; //make the eye visible
-      curentcollor = switchcollor(collors, iris, curentcollor); //switch collor from blank
-      console.log("SELECTED " + curentcollor)
-      left = 30 //the time left(10 seconds start time)
-      time.innerHTML = left 
-      interval = window.setInterval(function(){count()}, 1000); //set timeout intervalt for count
+      page(eye);
     }
   };
 };
@@ -207,26 +231,4 @@ for(i = 0; i < button.length; i++) //Add on click function for every "ball" butt
 
 
 //////////////////////////////////////////////////////////////////////////////////////////////(Experimental functions)
-/*function waitforme(ms) //Delay function for "for" loops
-{
-  return new Promise( resolve => 
-    {
-      setTimeout(()=> {resolve('')},ms );
-    })
-}
-async function page(eye)//Switch page
-{
-  for(var i = 0; i < eye.length; i++) //For every item in list eye
-  {
-    countdown.innerHTML = (4 - (i + 1))
-    eye[i].style.display = "flex"; 
-    console.log("on page " + i) //Display page
-    await waitforme(1000)
-    if(i != 3) //If on the final bage, just leave it
-    {
-      eye[i].style.display = "none";
-    }
-  }
-  game.style.display = "block";
-
-}*/
+/**/
