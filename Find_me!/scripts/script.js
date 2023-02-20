@@ -65,7 +65,7 @@ var points = 0; //initial points start from zero
 score.innerHTML = points;
 var record = 0;
 
-var left = 0; //Initial time(will be 10 seconds when started)
+var Left = 0; //Initial time(will be 10 seconds when started)
 var SubMiss = 0; //Subtract(misclick)
 var survived = 0;
 
@@ -146,9 +146,9 @@ async function page(eye)//Switch page
   points = 0;
   score.innerHTML = points;
 
-  left = 30; //the time left(30 seconds)
+  Left = 30; //the time left(30 seconds)
   survived = 0;
-  time.innerHTML = left 
+  time.innerHTML = Left 
   interval = window.setInterval(function(){count()}, 1000); //set timeout intervalt for count
 
 }
@@ -168,7 +168,7 @@ function Click(button, i) //Click function(Can't "onclick" directly in for loop(
       else
       {
         SubMiss++;
-        left = left - SubMiss; //If misclick, left will decrease linearly
+        Left = Left - SubMiss; //If misclick, left will decrease linearly
       }
       curentcollor = switchcollor(collors, iris, curentcollor); //switch collors and log the corect one
       siwtchpupil()
@@ -179,11 +179,11 @@ function Click(button, i) //Click function(Can't "onclick" directly in for loop(
 function count() //time function
 {
   console.log("tick")
-  left-- //subtract time
-  console.log("left: " + left)
-  time.innerHTML = left //display the time left
+  Left-- //subtract time
+  console.log("left: " + Left)
+  time.innerHTML = Left //display the time left
   survived++
-  if(left <= 0) //once the time runs out...
+  if(Left <= 0) //once the time runs out...
   {
     game.style.display = "none" //...make game over visible
     gameover.style.display = "block";
@@ -203,7 +203,7 @@ function count() //time function
   }
   else
   {
-    time.innerHTML = left
+    time.innerHTML = Left
     console.log("tock")
   }
 }
