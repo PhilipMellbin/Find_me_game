@@ -33,8 +33,12 @@
   border-style: solid;
   border-color: black;
   border-width: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .Iris1 {
@@ -46,8 +50,12 @@
   border-style: solid;
   border-color: black;
   border-width: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .Pupil1 {
@@ -67,8 +75,12 @@
   border-Top-right-radius: 0;
   border-style: solid;
   border-width: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .Iris2 {
@@ -79,8 +91,12 @@
   border-radius: 50%/100%;
   border-style: solid;
   border-width: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .Pupil2 {
@@ -93,7 +109,7 @@
 .Pupil2:before, .Pupil2:after {
   position: absolute;
   left: 21.5px;
-  content: " ";
+  content: ' ';
   height: 50px;
   width: 10px;
   background-color: #000000;
@@ -101,11 +117,13 @@
 }
 
 .Pupil2:before {
-  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
 }
 
 .Pupil2:after {
-  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
 }
 
 .Shape3 {
@@ -118,8 +136,12 @@
   border-style: solid;
   border-top-style: none;
   border-width: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 #Shape4 {
@@ -130,8 +152,12 @@
   border-style: solid;
   border-color: black;
   border-width: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .ball {
@@ -139,7 +165,9 @@
   height: 100px;
   border-radius: 50%;
   position: relative;
+  top: -300px;
 }
+
 .ball .ball-inner {
   position: absolute;
   margin: auto;
@@ -149,4 +177,5 @@
   margin-top: 12.5px;
   border-radius: 50%;
   background-color: white;
-}/*# sourceMappingURL=EyeAndGame.css.map */
+}
+/*# sourceMappingURL=EyeAndGame.css.map */

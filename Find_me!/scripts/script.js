@@ -112,7 +112,7 @@ function switchposs() //random generate coordinates
       button[i].style.left = wwc;
       wwc = 0
 
-      whc = Math.floor(Math.random() * wh - 250) ; //Height
+      whc = Math.floor(Math.random() * wh - 400) ; //Height
       whc = whc + 'px';
       button[i].style.top = whc;
       whc = 0
