@@ -100,6 +100,25 @@ function siwtchpupil()
     console.log("switched to Pupil1")
   }
 }
+function switchposs() //random generate coordinates
+{
+  for(var i = 0; i < button.length; i++)
+  {
+    while(wwc <= 0)//Length(Falesafe, if style.left < 0, the element will disepear)
+      {
+        wwc = Math.floor(Math.random() * ww - 100);
+      }
+      wwc = wwc + 'px';
+      button[i].style.left = wwc;
+      wwc = 0
+
+      whc = Math.floor(Math.random() * wh - 250) ; //Height
+      whc = whc + 'px';
+      button[i].style.top = whc;
+      whc = 0
+  }
+}
+//######################################################################################################
 function waitforme(ms) //Delay function for "for" loops
 {
   return new Promise( resolve => 
@@ -123,28 +142,15 @@ async function page(eye)//Switch page
   game.style.display = "block";
   curentcollor = switchcollor(collors, iris, curentcollor); //switch collor from blank
   console.log("SELECTED " + curentcollor)
-  left = 30 //the time left(30 seconds)
+
+  points = 0;
+  score.innerHTML = points;
+
+  left = 30; //the time left(30 seconds)
+  survived = 0;
   time.innerHTML = left 
   interval = window.setInterval(function(){count()}, 1000); //set timeout intervalt for count
 
-}
-function switchposs() //random generate coordinates
-{
-  for(var i = 0; i < button.length; i++)
-  {
-    while(wwc <= 0)//Length(Falesafe, if style.left < 0, the element will disepear)
-      {
-        wwc = Math.floor(Math.random() * ww - 100);
-      }
-      wwc = wwc + 'px';
-      button[i].style.left = wwc;
-      wwc = 0
-
-      whc = Math.floor(Math.random() * wh - 250) ; //Height
-      whc = whc + 'px';
-      button[i].style.top = whc;
-      whc = 0
-  }
 }
 function Click(button, i) //Click function(Can't "onclick" directly in for loop(https://www.youtube.com/watch?v=aZbgE3yhC2o&t=342s))
   {
