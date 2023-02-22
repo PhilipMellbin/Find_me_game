@@ -17,9 +17,9 @@ function showSlides(n) {
   var i;
   var slides = document.getElementsByClassName("info");
   var dots = document.getElementsByClassName("dot");
-  if (n > slides.length) {slideIndex = 1}
-  if (n < 1) {slideIndex = slides.length}
-  for (i = 0; i < slides.length; i++) {
+  if (n > (slides.length - 1)) {slideIndex = 1}
+  if (n < 1) {slideIndex = (slides.length - 1)}
+  for (i = 0; i < (slides.length - 1); i++) {
     slides[i].style.display = "none";
     slides[slideIndex-1].style.display = "flex";
   }
