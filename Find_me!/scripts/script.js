@@ -54,42 +54,42 @@ var wh = window.innerHeight - 250;
 var whc = 0;
 /////////////////////////////////////////////////////////////////////////////////////////////(Preset conditions)
 load.style.display = "none";
-game.style.display = "none"; //Make load and game invicible
+game.style.display = "none"; //Make load, game and game over invicible
 gameover.style.display = "none";
 
-var collors = ["blank", "red", "green", "blue"]; //load in collors
+var collors = ["blank", "red", "green", "blue"]; //load in availabla collors
 var curentcollor = "blank"; //first collor has to be defined as id
 var iris = document.getElementById(curentcollor); //get first collor id
 
-var points = 0; //initial points start from zero
+var points = 0; //initial points and score
 score.innerHTML = points;
 var record = 0;
 
 var Left = 0; //Initial time(will be 10 seconds when started)
-var SubMiss = 0; //Subtract(misclick)
-var survived = 0;
+var SubMiss = 0; //Subtract for missclick
+var survived = 0; //time survived
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////(Functions)
 function switchcollor(collors, iris, curentcollor) //Switch collor
 {
   let col = 0;
-  while (col == 0)
+  while (col == 0) //Peramiter so collor does not become "blank"
   {
-    col = Math.floor(Math.random() * 4);//generate random number
+    col = Math.floor(Math.random() * 4);//generate random number for collor
   }
-  iris.id = (collors[col]); //retrieve the collor from collors array
+  iris.id = (collors[col]); //retrieve the collor from collors arrayand present it in the iris
   console.log("collor selected: " + iris.id)
   curentcollor = collors[col];
   return(curentcollor);
   
 }
-function siwtchpupil()
+function siwtchpupil()//Switch pupil between O(click) and X(don't click)
 {
   pup = Math.floor(Math.random() * 3); //randomly generate  number for pupil
   console.log("pupil number" + pup) //control
   if(pup == 2)
   {
-    pupil.classList.remove('Pupil1'); //if roll a 2, change to the X pupil
+    pupil.classList.remove('Pupil1'); //if roll a 2 or 0, change to the X pupil
     pupil.classList.add('Pupil2');
     console.log("switched to Pupil2");
   }
@@ -100,11 +100,11 @@ function siwtchpupil()
     console.log("switched to Pupil1")
   }
 }
-function switchposs() //random generate coordinates
+function switchposs() //generate coordinates for buttons
 {
-  for(var i = 0; i < button.length; i++)
+  for(var i = 0; i < button.length; i++) //For every button
   {
-    while(wwc <= 0)//Length(Falesafe, if style.left < 0, the element will disepear)
+    while(wwc <= 0)//Left possition(Falesafe, if style.left < 0, the element will disepear)
       {
         wwc = Math.floor(Math.random() * ww - 100);
       }
@@ -152,7 +152,7 @@ async function page(eye)//Switch page
   interval = window.setInterval(function(){count()}, 1000); //set timeout intervalt for count
 
 }
-function Click(button, i) //Click function(Can't "onclick" directly in for loop(https://www.youtube.com/watch?v=aZbgE3yhC2o&t=342s))
+function Click(button, i) //Click function- for buttons(Can't "onclick" directly in for loop(https://www.youtube.com/watch?v=aZbgE3yhC2o&t=342s))
   {
     button[i].onclick = function() //Add on click function for the n:th button
     {
@@ -176,7 +176,7 @@ function Click(button, i) //Click function(Can't "onclick" directly in for loop(
       console.log("corect collor: " + curentcollor);
     }
   }
-function count() //time function
+function count() //timer
 {
   console.log("tick")
   Left-- //subtract time
@@ -185,7 +185,7 @@ function count() //time function
   survived++
   if(Left <= 0) //once the time runs out...
   {
-    game.style.display = "none" //...make game over visible
+    game.style.display = "none" //...End game and load gane over
     gameover.style.display = "block";
     eye[4].style.display = "flex" //display GameOver eye
     SubMiss = 0
@@ -219,13 +219,13 @@ for(i = 0; i < start.length; i++) //Add start function for every start button
   {
     console.log("button no." + i)
     header.style.display= "none";
-    rules.style.display = "none"; //Make only game vissible
+    rules.style.display = "none"; //Make only load vissible
     game.style.display = "none"; 
     gameover.style.display = "none";
     load.style.display = "block"
-    if(load.style.display == "block") //Once the game is visible...
+    if(load.style.display == "block") //Once the load is vicible
     {
-      page(eye);
+      page(eye); //Begin page function and start game
     }
   };
 };
