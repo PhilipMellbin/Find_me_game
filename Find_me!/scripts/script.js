@@ -104,7 +104,7 @@ function switchposs(x, y) //generate coordinates for buttons
 {
   for(var i = 0; i < button.length; i++) //For every button
   {
-    while(wwc <= 0)//Left possition(Falesafe, if style.left < 0, the element will disepear)
+    while(wwc >= x - 10 && wwc <= x + 10)//Left possition(Falesafe, if style.left < 0, the element will disepear)
       {
         wwc = Math.floor(Math.random() * ww - 100);
       }
