@@ -100,7 +100,7 @@ function siwtchpupil()//Switch pupil between O(click) and X(don't click)
     console.log("switched to Pupil1")
   }
 }
-function switchposs() //generate coordinates for buttons
+function switchposs(x, y) //generate coordinates for buttons
 {
   for(var i = 0; i < button.length; i++) //For every button
   {
