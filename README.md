@@ -130,4 +130,17 @@ Hope you have a nice week!
 
 --Philip Mellbin
 
+# log 23-02-26
+
+Leading upp till today, a few bugs have been fixed in the game(such as highscore not loading properly),
+and today, I am trying to fix the collicions bug(Some buttons are layered over each other.)
+
+The problem is that One button may land under the other if the wwc and whc variables align correctly. When this happens, it either gets hard or imposible to click one if it's under the other. The more alarming problem however is the eye. If one ball goes over the eye(wich it's likley to do.), it sometimes get's imposible to click the correct one.
+
+For the next log, one of these colicion bugs will be fixed.
+
+Have a nice day
+
+--Philip Mellbin
+
 
