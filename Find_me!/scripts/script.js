@@ -50,8 +50,10 @@ var timetext = document.getElementById("SurvivedTime")
 
 var ww = window.innerWidth - 250;
 var wwc = 0;
+x = wwc
 var wh = window.innerHeight - 250;
 var whc = 0;
+y = whc
 /////////////////////////////////////////////////////////////////////////////////////////////(Preset conditions)
 load.style.display = "none";
 game.style.display = "none"; //Make load, game and game over invicible
@@ -108,11 +110,16 @@ function switchposs(x, y) //generate coordinates for buttons
       {
         wwc = Math.floor(Math.random() * ww - 100);
       }
+    while(whc >= y - 10 && whc <= y + 10)
+    {
+      whc = Math.floor(Math.random() * wh - 400) ; //Height
+    }
+    x = wwc
+    y = whc
+    console.log("X-pos: " + x + "Y-pos: " + y)
       wwc = wwc + 'px';
       button[i].style.left = wwc;
       wwc = 0
-
-      whc = Math.floor(Math.random() * wh - 400) ; //Height
       whc = whc + 'px';
       button[i].style.top = whc;
       whc = 0
@@ -156,7 +163,7 @@ function Click(button, i) //Click function- for buttons(Can't "onclick" directly
   {
     button[i].onclick = function() //Add on click function for the n:th button
     {
-      switchposs(); //switch positions
+      switchposs(x, y); //switch positions
       
       console.log(button[i].id);
       if((button[i].id == curentcollor & pupil.className == "Pupil1") ^ (button[i].id != curentcollor & pupil.className == "Pupil2"))
