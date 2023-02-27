@@ -17,9 +17,9 @@ function showSlides(n) {
   var i;
   var slides = document.getElementsByClassName("info");
   var dots = document.getElementsByClassName("dot");
-  if (n > slides.length) {slideIndex = 1}
-  if (n < 1) {slideIndex = slides.length}
-  for (i = 0; i < slides.length; i++) {
+  if (n > (slides.length - 1)) {slideIndex = 1}
+  if (n < 1) {slideIndex = (slides.length - 1)}
+  for (i = 0; i < (slides.length - 1); i++) {
     slides[i].style.display = "none";
     slides[slideIndex-1].style.display = "flex";
   }
@@ -41,6 +41,9 @@ var gameover = document.getElementById("GameOver")
 var button = document.getElementsByClassName("ball");
 var score = document.getElementById("score");
 var pupil = document.getElementById("pupil");
+var pupil_poss = pupil.getBoundingClientRect(); //Retrive the position of pupil
+console.log("Left position: " + pupil_poss.left)
+console.log("peramiter: " + (pupil_poss.left - 100) + "|" + (pupil_poss.left + 100))
 
 
 var maxscore = document.getElementById("maxscore")
@@ -83,6 +86,17 @@ function switchcollor(collors, iris, curentcollor) //Switch collor
   return(curentcollor);
   
 }
+function randomNr(x,y,max, min){
+  var nr = Math.floor(Math.random() * (max - min) + 0)
+  console.log(nr)
+  if (nr > x && nr < y){
+      console.log('err');
+      return randomNr(x,y,max);
+  }
+  else {
+      return nr;
+  } 
+}
 function siwtchpupil()//Switch pupil between O(click) and X(don't click)
 {
   pup = Math.floor(Math.random() * 3); //randomly generate  number for pupil
@@ -104,18 +118,14 @@ function switchposs() //generate coordinates for buttons
 {
   for(var i = 0; i < button.length; i++) //For every button
   {
-    while(wwc <= 0)//Left possition(Falesafe, if style.left < 0, the element will disepear)
-      {
-        wwc = Math.floor(Math.random() * ww - 100);
-      }
+    wwc = randomNr(pupil_poss.left - 10, pupil_poss.left + 10, ww, 100)
       wwc = wwc + 'px';
       button[i].style.left = wwc;
       wwc = 0
-
-      whc = Math.floor(Math.random() * wh - 400) ; //Height
-      whc = whc + 'px';
-      button[i].style.top = whc;
-      whc = 0
+    whc = randomNr(pupil_poss.top - 10, pupil_poss.top + 10, wh, 400)
+    whc = whc + 'px'; 
+    button[i].style.top = whc;
+    whc = 0
   }
 }
 //######################################################################################################
@@ -178,9 +188,7 @@ function Click(button, i) //Click function- for buttons(Can't "onclick" directly
   }
 function count() //timer
 {
-  console.log("tick")
   Left-- //subtract time
-  console.log("left: " + Left)
   time.innerHTML = Left //display the time left
   survived++
   if(Left <= 0) //once the time runs out...
@@ -204,7 +212,6 @@ function count() //timer
   else
   {
     time.innerHTML = Left
-    console.log("tock")
   }
 }
 /////////////////////////////////////////////////////////////////////////////////////////////////(Aplication of functions for classes)

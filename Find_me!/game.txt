@@ -1,6 +1,3 @@
-Randome collor generator()
+pos----------x---------pos
 
-iris id = Randome collor generator()
-
-for every button
-button[n].id = Randome collor generator()
+Pos < x - 10 and pos > x + 10
