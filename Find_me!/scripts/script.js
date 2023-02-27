@@ -41,6 +41,8 @@ var gameover = document.getElementById("GameOver")
 var button = document.getElementsByClassName("ball");
 var score = document.getElementById("score");
 var pupil = document.getElementById("pupil");
+var pupil_poss = pupil.getBoundingClientRect();
+console.log("Left position: " + pupil_poss)
 
 
 var maxscore = document.getElementById("maxscore")
@@ -50,10 +52,8 @@ var timetext = document.getElementById("SurvivedTime")
 
 var ww = window.innerWidth - 250;
 var wwc = 0;
-x = wwc
 var wh = window.innerHeight - 250;
 var whc = 0;
-y = whc
 /////////////////////////////////////////////////////////////////////////////////////////////(Preset conditions)
 load.style.display = "none";
 game.style.display = "none"; //Make load, game and game over invicible
@@ -102,24 +102,20 @@ function siwtchpupil()//Switch pupil between O(click) and X(don't click)
     console.log("switched to Pupil1")
   }
 }
-function switchposs(x, y) //generate coordinates for buttons
+function switchposs() //generate coordinates for buttons
 {
   for(var i = 0; i < button.length; i++) //For every button
   {
-    while(wwc >= x - 10 && wwc <= x + 10)//Left possition(Falesafe, if style.left < 0, the element will disepear)
+    while(wwc <= 0 && (wwc <= pupil_poss.left - 100 ^ wwc >= pupil_poss.left + 100))//Left possition(Falesafe, if style.left < 0, the element will disepear)
       {
         wwc = Math.floor(Math.random() * ww - 100);
+        console.log("Button no." + i + "|Possition: " + wwc)
       }
-    while(whc >= y - 10 && whc <= y + 10)
-    {
-      whc = Math.floor(Math.random() * wh - 400) ; //Height
-    }
-    x = wwc
-    y = whc
-    console.log("X-pos: " + x + "Y-pos: " + y)
       wwc = wwc + 'px';
       button[i].style.left = wwc;
       wwc = 0
+
+      whc = Math.floor(Math.random() * wh - 400) ; //Height
       whc = whc + 'px';
       button[i].style.top = whc;
       whc = 0
