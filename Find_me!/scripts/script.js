@@ -41,8 +41,9 @@ var gameover = document.getElementById("GameOver")
 var button = document.getElementsByClassName("ball");
 var score = document.getElementById("score");
 var pupil = document.getElementById("pupil");
-var pupil_poss = pupil.getBoundingClientRect();
-console.log("Left position: " + pupil_poss)
+var pupil_poss = pupil.getBoundingClientRect(); //Retrive the position of pupil
+console.log("Left position: " + pupil_poss.left)
+console.log("peramiter: " + (pupil_poss.left - 100) + "|" + (pupil_poss.left + 100))
 
 
 var maxscore = document.getElementById("maxscore")
@@ -106,17 +107,19 @@ function switchposs() //generate coordinates for buttons
 {
   for(var i = 0; i < button.length; i++) //For every button
   {
-    while(wwc <= 0 && (wwc <= pupil_poss.left - 100 ^ wwc >= pupil_poss.left + 100))//Left possition(Falesafe, if style.left < 0, the element will disepear)
+    while((wwc <= pupil_poss.left - 100 ^ wwc >= pupil_poss.left + 100 && wwc) <= 0)//Left possition(Falesafe, if style.left < 0, the element will disepear)
       {
         wwc = Math.floor(Math.random() * ww - 100);
-        console.log("Button no." + i + "|Possition: " + wwc)
+        console.log("Button col:" + collors[i + 1] + "|Possition: " + wwc)
       }
       wwc = wwc + 'px';
       button[i].style.left = wwc;
       wwc = 0
-
+    while(whc <= pupil_poss.left - 50 ^ whc >= pupil_poss.left + 50)
+    {
       whc = Math.floor(Math.random() * wh - 400) ; //Height
-      whc = whc + 'px';
+      whc = whc + 'px'; 
+    }
       button[i].style.top = whc;
       whc = 0
   }
@@ -159,7 +162,7 @@ function Click(button, i) //Click function- for buttons(Can't "onclick" directly
   {
     button[i].onclick = function() //Add on click function for the n:th button
     {
-      switchposs(x, y); //switch positions
+      switchposs(); //switch positions
       
       console.log(button[i].id);
       if((button[i].id == curentcollor & pupil.className == "Pupil1") ^ (button[i].id != curentcollor & pupil.className == "Pupil2"))
@@ -181,9 +184,7 @@ function Click(button, i) //Click function- for buttons(Can't "onclick" directly
   }
 function count() //timer
 {
-  console.log("tick")
   Left-- //subtract time
-  console.log("left: " + Left)
   time.innerHTML = Left //display the time left
   survived++
   if(Left <= 0) //once the time runs out...
@@ -207,7 +208,6 @@ function count() //timer
   else
   {
     time.innerHTML = Left
-    console.log("tock")
   }
 }
 /////////////////////////////////////////////////////////////////////////////////////////////////(Aplication of functions for classes)
