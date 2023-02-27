@@ -118,11 +118,11 @@ function switchposs() //generate coordinates for buttons
 {
   for(var i = 0; i < button.length; i++) //For every button
   {
-    wwc = randomNr(pupil_poss.left - 150, pupil_poss.left + 150, ww, 100)
+    wwc = randomNr(pupil_poss.left - 10, pupil_poss.left + 10, ww, 100)
       wwc = wwc + 'px';
       button[i].style.left = wwc;
       wwc = 0
-    whc = randomNr(pupil_poss.top - 100, pupil_poss.top + 100, wh, 400)
+    whc = randomNr(pupil_poss.top - 10, pupil_poss.top + 10, wh, 400)
     whc = whc + 'px'; 
     button[i].style.top = whc;
     whc = 0
