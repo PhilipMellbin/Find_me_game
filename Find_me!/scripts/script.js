@@ -107,7 +107,7 @@ function switchposs() //generate coordinates for buttons
 {
   for(var i = 0; i < button.length; i++) //For every button
   {
-    while((wwc <= pupil_poss.left - 100 ^ wwc >= pupil_poss.left + 100 && wwc) <= 0)//Left possition(Falesafe, if style.left < 0, the element will disepear)
+    while((wwc <= pupil_poss.left - 100 ^ wwc >= pupil_poss.left + 100) && wwc <= 0)//Left possition(Falesafe, if style.left < 0, the element will disepear)
       {
         wwc = Math.floor(Math.random() * ww - 100);
         console.log("Button col:" + collors[i + 1] + "|Possition: " + wwc)
