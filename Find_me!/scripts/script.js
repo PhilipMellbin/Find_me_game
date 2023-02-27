@@ -166,6 +166,7 @@ function Click(button, i) //Click function- for buttons(Can't "onclick" directly
   {
     button[i].onclick = function() //Add on click function for the n:th button
     {
+      button[i].style.float = "none";
       switchposs(); //switch positions
       
       console.log(button[i].id);
