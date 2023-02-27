@@ -86,6 +86,17 @@ function switchcollor(collors, iris, curentcollor) //Switch collor
   return(curentcollor);
   
 }
+function randomNr(x,y,max, min){
+  var nr = Math.floor(Math.random() * (max - min) + 0)
+  console.log(nr)
+  if (nr > x && nr < y){
+      console.log('err');
+      return randomNr(x,y,max);
+  }
+  else {
+      return nr;
+  } 
+}
 function siwtchpupil()//Switch pupil between O(click) and X(don't click)
 {
   pup = Math.floor(Math.random() * 3); //randomly generate  number for pupil
@@ -107,21 +118,14 @@ function switchposs() //generate coordinates for buttons
 {
   for(var i = 0; i < button.length; i++) //For every button
   {
-    while((wwc >= pupil_poss.left - 100 ^ wwc <= pupil_poss.left + 100) && wwc <= 0)//Left possition(Falesafe, if style.left < 0, the element will disepear)
-      {
-        wwc = Math.floor(Math.random() * ww - 100);
-        console.log("Button col:" + collors[i + 1] + "|Possition: " + wwc)
-      }
+    wwc = randomNr(pupil_poss.left - 150, pupil_poss.left + 150, ww, 100)
       wwc = wwc + 'px';
       button[i].style.left = wwc;
       wwc = 0
-    while(whc <= pupil_poss.left - 50 ^ whc >= pupil_poss.left + 50)
-    {
-      whc = Math.floor(Math.random() * wh - 400) ; //Height
-      whc = whc + 'px'; 
-    }
-      button[i].style.top = whc;
-      whc = 0
+    whc = randomNr(pupil_poss.top - 100, pupil_poss.top + 100, wh, 400)
+    whc = whc + 'px'; 
+    button[i].style.top = whc;
+    whc = 0
   }
 }
 //######################################################################################################
