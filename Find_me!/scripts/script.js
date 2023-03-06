@@ -86,15 +86,15 @@ function switchcollor(collors, iris, curentcollor) //Switch collor
   return(curentcollor);
   
 }
-function randomNr(x,y,max, min){
-  var nr = Math.floor(Math.random() * (max - min) + 0)
+function randomNr(x,y,max, min){ //Generate number coresponding to left/top possition
+  var nr = Math.floor(Math.random() * (max - min) + 0) //generate number
   console.log(nr)
-  if (nr > x && nr < y){
-      console.log('err');
-      return randomNr(x,y,max);
+  if (nr > x && nr < y){ //if us within the peramiters
+      console.log('err'); 
+      return randomNr(x,y,max); //call the function again
   }
   else {
-      return nr;
+      return nr; //once satisfyed, return the new position
   } 
 }
 function siwtchpupil()//Switch pupil between O(click) and X(don't click)
