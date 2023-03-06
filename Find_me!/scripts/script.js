@@ -122,7 +122,7 @@ function switchposs() //generate coordinates for buttons
       wwc = wwc + 'px';
       button[i].style.left = wwc;
       wwc = 0
-    whc = randomNr(pupil_poss.top - 10, pupil_poss.top + 10, wh, 500)
+    whc = randomNr(pupil_poss.top - 10, pupil_poss.top + 10, wh, 900)
     whc = whc + 'px'; 
     button[i].style.top = whc;
     whc = 0
