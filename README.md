@@ -143,4 +143,16 @@ Have a nice day
 
 --Philip Mellbin
 
+# log 23-03-06
+
+For today, i think i have fixed the "button over button" bug, as well as "button over eye" bug. Mostly thanks to my teatcher giving me ideas. 
+
+This game semes mostely compleate, but will try to add a difriculty selection, so easy will be only 3 collors, and hard will be 3 buttons with random collors(So red, green, blue becomes orange, purple, white). Adding extra collors instead of extra buttons seemes easy enough, since there is already a function for it, and it seemes easy to whrite it in(Will put pseudocode in game.txt to display).
+
+If there are anny other suggestions, please contact me at gamer.mellbin@gmail.com
+
+Have a nice day!
+
+--Philip Mellbin
+
 
