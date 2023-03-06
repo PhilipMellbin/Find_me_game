@@ -60,6 +60,7 @@ load.style.display = "none";
 game.style.display = "none"; //Make load, game and game over invicible
 gameover.style.display = "none";
 
+var possitions = [0, 0, 0];
 var collors = ["blank", "red", "green", "blue"]; //load in availabla collors
 var curentcollor = "blank"; //first collor has to be defined as id
 var iris = document.getElementById(curentcollor); //get first collor id
@@ -88,12 +89,27 @@ function switchcollor(collors, iris, curentcollor) //Switch collor
 }
 function randomNr(x,y,max, min){ //Generate number coresponding to left/top possition
   var nr = Math.floor(Math.random() * (max - min) + 0) //generate number
+  var spot = 0;
   console.log(nr)
+  for(var i = 0; i > possitions.length; i++)
+  {
+    if (nr == possitions[i])
+    {
+      var change = true
+    }
+  }
   if (nr > x && nr < y){ //if us within the peramiters
-      console.log('err'); 
+      console.log('err: in eye'); 
       return randomNr(x,y,max); //call the function again
   }
+  else if(change == true)
+  {
+    console.log('err: position taken')
+    return randomNr(x,y,max);
+  }
   else {
+    possitions[spot] = nr
+    spot ++
       return nr; //once satisfyed, return the new position
   } 
 }
