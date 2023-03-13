@@ -74,7 +74,7 @@ var SubMiss = 0; //Subtract for missclick
 var survived = 0; //time survived
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////(Functions)
-function switchcollor(collors, iris, curentcollor) //Switch collor
+function switchcollor1(collors, iris, curentcollor) //Switch collor
 {
   let col = 0;
   while (col == 0) //Peramiter so collor does not become "blank"
@@ -86,6 +86,23 @@ function switchcollor(collors, iris, curentcollor) //Switch collor
   curentcollor = collors[col];
   return(curentcollor);
   
+}
+function randomcollor(elementid)
+{
+  var randomColor = Math.floor(Math.random()*16777215).toString(16);
+  elementid.style.backgroundcollor = randomColor;
+  return console.log("succesfully switched collor of" + elementid + "to" + randomColor)
+}
+function assertcollors(buttons, iris)
+{
+  randomcollor(iris);
+  for (i = 0; i < buttons.length; i++)
+  {
+    randomcollor(button[i]);
+    console.log(button[i].style.backgroundColor)
+  }
+  var selected = Math.floor(Math.random() * 3);
+  button[selected].style.backgroundColor = iris.style.backgroundColor;
 }
 function randomNr(x,y,max, min){ //Generate number coresponding to left/top possition
   var nr = Math.floor(Math.random() * (max - min) + 0) //generate number
@@ -166,8 +183,7 @@ async function page(eye)//Switch page
     }
   }
   game.style.display = "block";
-  curentcollor = switchcollor(collors, iris, curentcollor); //switch collor from blank
-  console.log("SELECTED " + curentcollor)
+  assertcollors(button, iris);
 
   points = 0;
   score.innerHTML = points;
@@ -197,7 +213,7 @@ function Click(button, i) //Click function- for buttons(Can't "onclick" directly
         SubMiss++;
         Left = Left - SubMiss; //If misclick, left will decrease linearly
       }
-      curentcollor = switchcollor(collors, iris, curentcollor); //switch collors and log the corect one
+      assertcollors(button, iris); //switch collors and log the corect one
       siwtchpupil()
       
       console.log("corect collor: " + curentcollor);
@@ -241,7 +257,6 @@ for(i = 0; i < start.length; i++) //Add start function for every start button
   console.log(i)
   start[i].onclick = function() //on click function
   {
-    console.log("button no." + i)
     header.style.display= "none";
     rules.style.display = "none"; //Make only load vissible
     game.style.display = "none"; 

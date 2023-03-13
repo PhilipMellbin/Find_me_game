@@ -1,5 +1,7 @@
 get the collor of each id.
 
+randomly select id to make it's coller equal to the eye
+
 if ball.collor = iris.collor
 
 give one point
