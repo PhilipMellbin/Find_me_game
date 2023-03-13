@@ -186,7 +186,7 @@ function Click(button, i) //Click function- for buttons(Can't "onclick" directly
       switchposs(); //switch positions
       
       console.log(button[i].id);
-      if((button[i].id == curentcollor & pupil.className == "Pupil1") ^ (button[i].id != curentcollor & pupil.className == "Pupil2"))
+      if((button[i].style.backgroundColor == pupil.style.backgroundColor & pupil.className == "Pupil1") ^ (button[i].style.backgroundColor != pupil.style.backgroundColor & pupil.className == "Pupil2"))
       //if you click the same collor with regular pupil, or click difrent collor with X pupil.
       {
         points++;

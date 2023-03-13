@@ -1,3 +1,5 @@
-pos----------x---------pos
+get the collor of each id.
 
-Pos < x - 10 and pos > x + 10
+if ball.collor = iris.collor
+
+give one point
