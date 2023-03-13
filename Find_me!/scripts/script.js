@@ -90,7 +90,7 @@ function switchcollor1(collors, iris, curentcollor) //Switch collor
 function randomcollor(elementid)
 {
   var randomColor = Math.floor(Math.random()*16777215).toString(16);
-  elementid.style.backgroundcollor = randomColor;
+  elementid.style.backgroundcollor = "#" + randomColor;
   return console.log("succesfully switched collor of" + elementid + "to" + randomColor)
 }
 function assertcollors(buttons, iris)
