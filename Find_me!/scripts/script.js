@@ -87,21 +87,20 @@ function switchcollor1(collors, iris, curentcollor) //Switch collor
   return(curentcollor);
   
 }
-function randomcollor(elementid)
+function randomcollor()
 {
   var randomColor = Math.floor(Math.random()*16777215).toString(16);
-  elementid.style.backgroundcollor = "#" + randomColor;
-  return console.log("succesfully switched collor of" + elementid + "to" + randomColor)
+  return randomColor
 }
 function assertcollors(buttons, iris)
 {
-  randomcollor(iris);
+  iris.style.backgroundColor = "#" + randomcollor();
   for (i = 0; i < buttons.length; i++)
   {
-    randomcollor(button[i]);
+    button[i].style.backgroundColor  = "#" + randomcollor();
     console.log(button[i].style.backgroundColor)
   }
-  var selected = Math.floor(Math.random() * 3);
+  var selected= Math.floor(Math.random() * 3);
   button[selected].style.backgroundColor = iris.style.backgroundColor;
 }
 function randomNr(x,y,max, min){ //Generate number coresponding to left/top possition
