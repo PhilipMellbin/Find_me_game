@@ -87,21 +87,21 @@ function switchcollor1(collors, iris, curentcollor) //Switch collor
   return(curentcollor);
   
 }
-function randomcollor()
+function randomcollor() //Generates a random hex collor
 {
   var randomColor = Math.floor(Math.random()*16777215).toString(16);
   return randomColor
 }
 function assertcollors(buttons, iris)
 {
-  iris.style.backgroundColor = "#" + randomcollor();
+  iris.style.backgroundColor = "#" + randomcollor(); //Aserts the random collor to iris
   for (i = 0; i < buttons.length; i++)
   {
-    button[i].style.backgroundColor  = "#" + randomcollor();
+    button[i].style.backgroundColor  = "#" + randomcollor(); //Aserts random collor to all buttons
     console.log(button[i].style.backgroundColor)
   }
   var selected= Math.floor(Math.random() * 3);
-  button[selected].style.backgroundColor = iris.style.backgroundColor;
+  button[selected].style.backgroundColor = iris.style.backgroundColor; //Make shure one of the buttons have the same collor as iris
 }
 function randomNr(x,y,max, min){ //Generate number coresponding to left/top possition
   var nr = Math.floor(Math.random() * (max - min) + 0) //generate number
