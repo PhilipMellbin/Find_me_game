@@ -17,9 +17,9 @@ function showSlides(n) {
   var i;
   var slides = document.getElementsByClassName("info");
   var dots = document.getElementsByClassName("dot");
-  if (n > slides.length) {slideIndex = 1}
-  if (n < 1) {slideIndex = slides.length}
-  for (i = 0; i < slides.length; i++) {
+  if (n > (slides.length - 1)) {slideIndex = 1}
+  if (n < 1) {slideIndex = (slides.length - 1)}
+  for (i = 0; i < (slides.length - 1); i++) {
     slides[i].style.display = "none";
     slides[slideIndex-1].style.display = "flex";
   }
@@ -41,6 +41,9 @@ var gameover = document.getElementById("GameOver")
 var button = document.getElementsByClassName("ball");
 var score = document.getElementById("score");
 var pupil = document.getElementById("pupil");
+var pupil_poss = pupil.getBoundingClientRect(); //Retrive the position of pupil
+console.log("Left position: " + pupil_poss.left)
+console.log("peramiter: " + (pupil_poss.left - 100) + "|" + (pupil_poss.left + 100))
 
 
 var maxscore = document.getElementById("maxscore")
@@ -54,42 +57,53 @@ var wh = window.innerHeight - 250;
 var whc = 0;
 /////////////////////////////////////////////////////////////////////////////////////////////(Preset conditions)
 load.style.display = "none";
-game.style.display = "none"; //Make load and game invicible
+game.style.display = "none"; //Make load, game and game over invicible
 gameover.style.display = "none";
 
-var collors = ["blank", "red", "green", "blue"]; //load in collors
+var collors = ["blank", "red", "green", "blue"]; //load in availabla collors
 var curentcollor = "blank"; //first collor has to be defined as id
 var iris = document.getElementById(curentcollor); //get first collor id
 
-var points = 0; //initial points start from zero
+var points = 0; //initial points and score
 score.innerHTML = points;
 var record = 0;
 
-var left = 0; //Initial time(will be 10 seconds when started)
-var SubMiss = 0; //Subtract(misclick)
-var survived = 0;
+var Left = 0; //Initial time(will be 10 seconds when started)
+var SubMiss = 0; //Subtract for missclick
+var survived = 0; //time survived
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////(Functions)
 function switchcollor(collors, iris, curentcollor) //Switch collor
 {
   let col = 0;
-  while (col == 0)
+  while (col == 0) //Peramiter so collor does not become "blank"
   {
-    col = Math.floor(Math.random() * 4);//generate random number
+    col = Math.floor(Math.random() * 4);//generate random number for collor
   }
-  iris.id = (collors[col]); //retrieve the collor from collors array
+  iris.id = (collors[col]); //retrieve the collor from collors arrayand present it in the iris
   console.log("collor selected: " + iris.id)
   curentcollor = collors[col];
   return(curentcollor);
   
 }
-function siwtchpupil()
+function randomNr(x,y,max, min){
+  var nr = Math.floor(Math.random() * (max - min) + 0)
+  console.log(nr)
+  if (nr > x && nr < y){
+      console.log('err');
+      return randomNr(x,y,max);
+  }
+  else {
+      return nr;
+  } 
+}
+function siwtchpupil()//Switch pupil between O(click) and X(don't click)
 {
   pup = Math.floor(Math.random() * 3); //randomly generate  number for pupil
   console.log("pupil number" + pup) //control
   if(pup == 2)
   {
-    pupil.classList.remove('Pupil1'); //if roll a 2, change to the X pupil
+    pupil.classList.remove('Pupil1'); //if roll a 2 or 0, change to the X pupil
     pupil.classList.add('Pupil2');
     console.log("switched to Pupil2");
   }
@@ -100,25 +114,55 @@ function siwtchpupil()
     console.log("switched to Pupil1")
   }
 }
-function switchposs() //random generate coordinates
+function switchposs() //generate coordinates for buttons
 {
-  for(var i = 0; i < button.length; i++)
+  for(var i = 0; i < button.length; i++) //For every button
   {
-    while(wwc <= 0)//Length(Falesafe, if style.left < 0, the element will disepear)
-      {
-        wwc = Math.floor(Math.random() * ww - 100);
-      }
+    wwc = randomNr(pupil_poss.left - 10, pupil_poss.left + 10, ww, 100)
       wwc = wwc + 'px';
       button[i].style.left = wwc;
       wwc = 0
-
-      whc = Math.floor(Math.random() * wh - 250) ; //Height
-      whc = whc + 'px';
-      button[i].style.top = whc;
-      whc = 0
+    whc = randomNr(pupil_poss.top - 10, pupil_poss.top + 10, wh, 400)
+    whc = whc + 'px'; 
+    button[i].style.top = whc;
+    whc = 0
   }
 }
-function Click(button, i) //Click function(Can't "onclick" directly in for loop(https://www.youtube.com/watch?v=aZbgE3yhC2o&t=342s))
+//######################################################################################################
+function waitforme(ms) //Delay function for "for" loops
+{
+  return new Promise( resolve => 
+    {
+      setTimeout(()=> {resolve('')},ms );
+    })
+}
+async function page(eye)//Switch page
+{
+  for(var i = 0; i < eye.length - 1; i++) //For every item in list eye
+  {
+    countdown.innerHTML = (4 - (i + 1))
+    eye[i].style.display = "flex"; 
+    console.log("on page " + i) //Display page
+    await waitforme(1000)
+    if(i != 3) //If on the final bage, just leave it
+    {
+      eye[i].style.display = "none";
+    }
+  }
+  game.style.display = "block";
+  curentcollor = switchcollor(collors, iris, curentcollor); //switch collor from blank
+  console.log("SELECTED " + curentcollor)
+
+  points = 0;
+  score.innerHTML = points;
+
+  Left = 30; //the time left(30 seconds)
+  survived = 0;
+  time.innerHTML = Left 
+  interval = window.setInterval(function(){count()}, 1000); //set timeout intervalt for count
+
+}
+function Click(button, i) //Click function- for buttons(Can't "onclick" directly in for loop(https://www.youtube.com/watch?v=aZbgE3yhC2o&t=342s))
   {
     button[i].onclick = function() //Add on click function for the n:th button
     {
@@ -134,7 +178,7 @@ function Click(button, i) //Click function(Can't "onclick" directly in for loop(
       else
       {
         SubMiss++;
-        left = left - SubMiss; //If misclick, left will decrease linearly
+        Left = Left - SubMiss; //If misclick, left will decrease linearly
       }
       curentcollor = switchcollor(collors, iris, curentcollor); //switch collors and log the corect one
       siwtchpupil()
@@ -142,16 +186,14 @@ function Click(button, i) //Click function(Can't "onclick" directly in for loop(
       console.log("corect collor: " + curentcollor);
     }
   }
-function count() //time function
+function count() //timer
 {
-  console.log("tick")
-  left-- //subtract time
-  console.log("left: " + left)
-  time.innerHTML = left //display the time left
+  Left-- //subtract time
+  time.innerHTML = Left //display the time left
   survived++
-  if(left <= 0) //once the time runs out...
+  if(Left <= 0) //once the time runs out...
   {
-    game.style.display = "none" //...make game over visible
+    game.style.display = "none" //...End game and load gane over
     gameover.style.display = "block";
     eye[4].style.display = "flex" //display GameOver eye
     SubMiss = 0
@@ -169,8 +211,7 @@ function count() //time function
   }
   else
   {
-    time.innerHTML = left
-    console.log("tock")
+    time.innerHTML = Left
   }
 }
 /////////////////////////////////////////////////////////////////////////////////////////////////(Aplication of functions for classes)
@@ -185,23 +226,13 @@ for(i = 0; i < start.length; i++) //Add start function for every start button
   {
     console.log("button no." + i)
     header.style.display= "none";
-    rules.style.display = "none"; //Make only game vissible
-    game.style.display = "block"; 
+    rules.style.display = "none"; //Make only load vissible
+    game.style.display = "none"; 
     gameover.style.display = "none";
-    if(game.style.display == "block") //Once the game is visible...
+    load.style.display = "block"
+    if(load.style.display == "block") //Once the load is vicible
     {
-      eye[3].style.display = "flex"; //make the eye visible
-      curentcollor = switchcollor(collors, iris, curentcollor); //switch collor from blank
-      console.log("SELECTED " + curentcollor)
-      left = 30 //the time left(10 seconds start time)
-      time.innerHTML = left 
-      highscore.innerHTML = 0
-      survived = 0;
-      points = 0; //initial points start from zero
-      score.innerHTML = points;
-
-
-      interval = window.setInterval(function(){count()}, 1000); //set timeout intervalt for count
+      page(eye); //Begin page function and start game
     }
   };
 };
@@ -213,26 +244,4 @@ for(i = 0; i < button.length; i++) //Add on click function for every "ball" butt
 
 
 //////////////////////////////////////////////////////////////////////////////////////////////(Experimental functions)
-/*function waitforme(ms) //Delay function for "for" loops
-{
-  return new Promise( resolve => 
-    {
-      setTimeout(()=> {resolve('')},ms );
-    })
-}
-async function page(eye)//Switch page
-{
-  for(var i = 0; i < eye.length; i++) //For every item in list eye
-  {
-    countdown.innerHTML = (4 - (i + 1))
-    eye[i].style.display = "flex"; 
-    console.log("on page " + i) //Display page
-    await waitforme(1000)
-    if(i != 3) //If on the final bage, just leave it
-    {
-      eye[i].style.display = "none";
-    }
-  }
-  game.style.display = "block";
-
-}*/
+/**/
