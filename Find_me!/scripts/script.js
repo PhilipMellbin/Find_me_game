@@ -116,12 +116,12 @@ function randomNr(x,y,max, min){ //Generate number coresponding to left/top poss
   }
   if (nr > x && nr < y){ //if us within the peramiters
       console.log('err: in eye'); 
-      return randomNr(x,y,max); //call the function again
+      return randomNr(x,y,max, min); //call the function again
   }
   else if(change == true)
   {
     console.log('err: position taken')
-    return randomNr(x,y,max);
+    return randomNr(x,y,max, min);
   }
   else {
     possitions[spot] = nr
