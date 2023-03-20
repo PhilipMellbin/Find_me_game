@@ -132,22 +132,6 @@
           justify-content: center;
 }
 
-#Shape4 {
-  width: 70%;
-  max-width: 1000px;
-  height: 170px;
-  border-radius: 50%;
-  border-style: solid;
-  border-color: black;
-  border-width: 10px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-}
-
 .ball {
   width: 100px;
   height: 100px;

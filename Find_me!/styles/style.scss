@@ -20,7 +20,8 @@ h2 //Most likely not needed
 }
 $width: 426px;
 $height: 354px;
-.info {
+.info //style for info boxes
+{
     display: flex;
     justify-content: space-evenly;
     background-color: aliceblue;
@@ -57,7 +58,7 @@ $height: 354px;
         height: 217px;
     }
     }
-div#Eye
+div#Eye //Initialy make eye and clock invicible
 {
     display: none;
 }
@@ -65,7 +66,7 @@ div#Clock
 {
     display: none;
 }
-.Slide
+.Slide //Style for slider
 {
     display:flex;
     column-gap: 108px;
@@ -73,9 +74,9 @@ div#Clock
     margin: auto;
     a
     {
-        font-size: 50px;
+        font-size: 50px; //Style for left/right slider
     }
-    p.middle
+    p.middle //Style for button in the middle
     {
         left: 50%;
         margin-top: 14px;

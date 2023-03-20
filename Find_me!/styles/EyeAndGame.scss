@@ -2,22 +2,22 @@ $length: 170px;
 ///////////////////////////////////////////////////////////////////////////////////(Color ID:s)
 #blank
 {
-    background-color: cornsilk;
+    background-color: cornsilk; //Defult collor for iris
 }
 ////////////////////////////////////////////////////////////////////////////////////////(eye)
-#countdown
+#countdown //Style for countdown
 {
     text-align: center;
     font-size: 50px;
     font-family: sans-serif;
 }
 
-.eye
+.eye //Eye position
 {
     margin: auto;
     margin-top: 30vh;
 }
-.Shape1
+.Shape1 //Shape of the first eye(Open)
 {
     width: 70%;
     max-width: 1000px;
@@ -29,7 +29,7 @@ $length: 170px;
     display:flex;
     justify-content: center;
 }
-.Iris1
+.Iris1 //iris collor
 {
     width: $length;
     height: $length;
@@ -42,7 +42,7 @@ $length: 170px;
     display: flex;
     justify-content: center;
 }
-.Pupil1
+.Pupil1 //First type of pupil (O)
 {
     $NewLength: $length / 3.4;
     width: $NewLength;
@@ -51,7 +51,7 @@ $length: 170px;
     background-color: black;
     border-radius: 50%;
 }
-.Shape2
+.Shape2 //Second eye shape, partialy closed
 {
     width: 70%;
     max-width: 1000px;
@@ -64,7 +64,7 @@ $length: 170px;
     display: flex;
     justify-content: center;
 }
-.Iris2
+.Iris2 //Iris changed to better suit the partialy closed eye
 {
     width: 170px;
     height: 100px;
@@ -76,13 +76,15 @@ $length: 170px;
     display: flex;
     justify-content: center;
 }
-.Pupil2 {
+.Pupil2 //Second pupuil type (X)
+{
     $NewLength: $length / 3.4;
     width: $NewLength;
     height: $NewLength;
     margin:auto;
     position: relative;
   }
+  //Pure css X
   .Pupil2:before, .Pupil2:after {
     position: absolute;
     left: 21.5px;
@@ -98,7 +100,7 @@ $length: 170px;
   .Pupil2:after {
     transform: rotate(-45deg);
   }
-.Shape3
+.Shape3 //Fully closed eye
 {
     width: 70%;
     max-width: 1000px;
@@ -110,18 +112,6 @@ $length: 170px;
     border-top-style: none;
     border-width: 10px;
     display: flex;
-    justify-content: center;
-}
-#Shape4
-{
-    width: 70%;
-    max-width: 1000px;
-    height: $length;
-    border-radius: 50%;
-    border-style: solid;
-    border-color: black;
-    border-width: 10px;
-    display:flex;
     justify-content: center;
 }
 ////////////////////////////////////////////////////////////////////////////////////////////(Game)
