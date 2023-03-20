@@ -115,7 +115,7 @@ $length: 170px;
     justify-content: center;
 }
 ////////////////////////////////////////////////////////////////////////////////////////////(Game)
-.ball
+.ball //Buttons
 {
     $size: 100px;
     width: $size;
@@ -124,7 +124,7 @@ $length: 170px;
     position:relative;
     top: -200px;
     float: left;
-    .ball-inner
+    .ball-inner //Innber button circle
     {
         position: absolute;
         margin:auto;
