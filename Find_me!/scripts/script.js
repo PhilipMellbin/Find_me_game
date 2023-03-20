@@ -150,7 +150,7 @@ function switchposs() //generate coordinates for buttons
 {
   for(var i = 0; i < button.length; i++) //For every button
   {
-    wwc = randomNr(pupil_poss.left - 50, pupil_poss.left + 50, ww, 100)
+    wwc = randomNr(pupil_poss.left - 60, pupil_poss.left + 60, ww, 100)
       wwc = wwc + 'px';
       button[i].style.left = wwc;
       wwc = 0
