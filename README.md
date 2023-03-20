@@ -156,3 +156,12 @@ Have a nice day!
 --Philip Mellbin
 
 
+# log  23-03-20 (Last log)
+
+For today, I have patched a few buggs, added a random collors algorytm, and added commets to the scss files. As this is my last log, i will probably not add enything new, but in the future, i might add a difriculty function where you could cycle between easy and hard. Thus why i kept some of the old code.
+
+I might however just say "I'm done" and deleate the rest of the old code.
+
+Have a plessant day!
+
+--Philip Mellbin
